@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Brand Identity for Nova | Vaishnav T. Prakash</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#F43F5E',
+            dark: '#0F0F0F',
+            secondary: '#1F1F1F',
+            accent: '#2D2D2D',
+            light: '#E5E5E5',
+            muted: '#A3A3A3',
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #101010;
+      color: #E5E5E5;
+      scroll-behavior: smooth;
+    }
+    
+    .hero-text {
+      background: linear-gradient(90deg, #E5E5E5, #F43F5E);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    
+    .typewriter {
+      border-right: 2px solid #F43F5E;
+      animation: blink 0.75s step-end infinite;
+    }
+    
+    @keyframes blink {
+      from, to { border-color: transparent }
+      50% { border-color: #F43F5E; }
+    }
+    
+    .card-hover:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(244, 63, 94, 0.2);
+    }
+    
+    .work-item:hover img {
+      transform: scale(1.05);
+      filter: grayscale(0%) brightness(100%);
+    }
+    
+    .work-item img {
+      transition: all 0.3s ease;
+      filter: grayscale(30%) brightness(90%);
+    }
+    
+    .nav-link {
+      position: relative;
+    }
+    
+    .nav-link:after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -2px;
+      left: 0;
+      background-color: #F43F5E;
+      transition: width 0.3s ease;
+    }
+    
+    .nav-link:hover:after {
+      width: 100%;
+    }
+    
+    .active-nav:after {
+      width: 100%;
+    }
+    
+    .glow-btn {
+      box-shadow: 0 0 15px rgba(244, 63, 94, 0.5);
+    }
+    
+    .glow-btn:hover {
+      box-shadow: 0 0 25px rgba(244, 63, 94, 0.8);
+    }
+    
+    .tool-icon:hover {
+      transform: translateY(-5px) scale(1.1);
+      color: #F43F5E;
+    }
+    
+    .section-title:after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 3px;
+      background: #F43F5E;
+      margin-top: 10px;
+    }
+    
+    input, textarea {
+      background-color: #1F1F1F !important;
+      border: 1px solid #2D2D2D !important;
+    }
+    
+    input:focus, textarea:focus {
+      border-color: #F43F5E !important;
+      outline: none;
+    }
+    
+    .social-icon {
+      transition: all 0.3s ease;
+    }
+    
+    .social-icon:hover {
+      color: #F43F5E;
+      transform: scale(1.2);
+    }
+    
+    .tag {
+      background-color: #2D2D2D;
+      color: #F43F5E;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      margin-right: 0.5rem;
+      transition: all 0.3s ease;
+    }
+    
+    .tag:hover {
+      background-color: #F43F5E;
+      color: white;
+    }
+    
+    .project-image {
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    
+    .project-image:hover {
+      transform: scale(1.02);
+      box-shadow: 0 10px 25px rgba(244, 63, 94, 0.3);
+    }
+    
+    .back-btn {
+      transition: all 0.3s ease;
+    }
+    
+    .back-btn:hover {
+      color: #F43F5E;
+      transform: translateX(-5px);
+    }
+    
+    .detail-card {
+      background: linear-gradient(145deg, #1F1F1F, #2D2D2D);
+      border: 1px solid #2D2D2D;
+      transition: all 0.3s ease;
+    }
+    
+    .detail-card:hover {
+      border-color: #F43F5E;
+      transform: translateY(-3px);
+    }
+  </style>
+</head>
+<body class="p-6 md:p-12">
+  <div class="max-w-5xl mx-auto">
+    <!-- Back Button -->
+    <a href="index.html" class="back-btn inline-flex items-center text-muted mb-6">
+      <i class="fas fa-arrow-left mr-2"> </i>
+      Back to Portfolio
+    </a>
+    
+    <!-- Hero Image -->
+    <div class="relative rounded-xl overflow-hidden mb-8 shadow-lg work-item">
+      
+      <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6">
+        <div>
+          <h1 class="text-3xl md:text-4xl font-bold mb-2 hero-text">Brand Identity</h1>
+          <p class="text-light/80">Creating a futuristic visual identity for an innovative tech startup</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project Meta -->
+    <div class="flex flex-wrap items-center justify-between mb-8">
+      <div class="flex mb-4 md:mb-0">
+        <span class="tag hover:bg-primary hover:text-white">Branding</span>
+        <span class="tag hover:bg-primary hover:text-white">Design</span>
+        <span class="tag hover:bg-primary hover:text-white">Visual Identity</span>
+      </div>
+      <div class="flex items-center space-x-4">
+        <span class="text-muted text-sm"><i class="fas fa-calendar-alt mr-1"></i> 2024</span>
+        <span class="text-muted text-sm"><i class="fas fa-clock mr-1"></i> 1- 2weeks</span>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <!-- Left Column -->
+      <div class="lg:col-span-2">
+        <!-- Overview -->
+        <div class="mb-12">
+          <h2 class="text-2xl font-bold mb-4 section-title">Overview</h2>
+          <p class="text-muted mb-6">
+            With over five years of experience in logo design and animation, I specialize in crafting visually striking identities that balance futuristic aesthetics with an inviting, approachable feel. My work ensures accessibility while maintaining a forward-thinking edge, creating brands that resonate across diverse audiences and applications.
+          </p>
+          <p class="text-muted">
+            With over five years of experience in logo design and animation, I developed a comprehensive visual identity that included logo creation, dynamic color systems, typography rules, and custom iconography. The goal was to ensure consistency across all touchpoints, making the design adaptable for digital platforms, print materials, and physical products while maintaining a sleek and engaging aesthetic.
+          </p>
+        </div>
+
+        <!-- Problem & Solution -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+          <div class="detail-card p-6 rounded-lg">
+            <div class="text-primary mb-3 text-xl"><i class="fas fa-exclamation-circle"></i></div>
+            <h3 class="font-bold mb-2">The Challenge</h3>
+            <p class="text-muted text-sm">
+              Designing an editing logo required striking the perfect balance between clarity and creativity. It needed to stand out in a competitive space while maintaining a sleek, professional look. The design had to appeal to both seasoned professionals and casual users, ensuring ease of recognition without sacrificing its innovative, forward-thinking aesthetic.
+            </p>
+          </div>
+          <div class="detail-card p-6 rounded-lg">
+            <div class="text-primary mb-3 text-xl"><i class="fas fa-lightbulb"></i></div>
+            <h3 class="font-bold mb-2">The Solution</h3>
+            <p class="text-muted text-sm">
+              I created a modular identity system with a dynamic logo that adapts to different contexts, a vibrant yet sophisticated color palette, and clean typography that balances technical precision with human warmth.
+            </p>
+          </div>
+        </div>
+
+        <!-- Gallery -->
+        <div class="mb-12">
+          <h2 class="text-2xl font-bold mb-6 section-title">Recent Logo Desings and Animations</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="project-image rounded-lg overflow-hidden">
+              <img src="images/blurpng.png" alt="Logo Design" class="w-full">
+            </div>
+            <div class="project-image rounded-lg overflow-hidden">
+              <img src="images/pallets/blur logo colors.png" alt="Color System" class="w-full">
+            </div>
+            <div class="project-image rounded-lg overflow-hidden">
+              <video class="w-full h-auto" controls>
+                <source src="videos/BLUR.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+        </div>
+        
+
+        <div class="mb-12">
+          <h2 class="text-2xl font-bold mb-6 section-title">Project Vyshh</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="project-image rounded-lg overflow-hidden">
+              <img src="images/vysh.png" alt="Logo Design" class="w-full">
+            </div>
+            <div class="project-image rounded-lg overflow-hidden">
+              <img src="images/pallets/vyshh.png" alt="Color System" class="w-full">
+              <div class="project-image rounded-lg overflow-hidden">
+                <video class="w-full h-auto" controls>
+                  <source src="videos/compilation.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+          </div>
+        </div>
+
+        
+     
+            <!--<div class="project-image rounded-lg overflow-hidden">
+              <img src="https://via.placeholder.com/600x400?text=Typography" alt="Typography" class="w-full">
+            </div>
+            <div class="project-image rounded-lg overflow-hidden">
+              <img src="https://via.placeholder.com/600x400?text=Brand+Applications" alt="Brand Applications" class="w-full">
+            </div>
+          </div>
+        </div>-->
+
+        <!-- Process -->
+        <div class="mb-12">
+          <h2 class="text-2xl font-bold mb-6 section-title">Design Process</h2>
+          <div class="space-y-6">
+            <div class="flex">
+              <div class="flex flex-col items-center mr-4">
+                <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white font-bold">1</div>
+                <div class="w-px h-full bg-accent mt-2"></div>
+              </div>
+              <div>
+                <h3 class="font-bold mb-2">Discovery & Research</h3>
+                <p class="text-muted">
+                  Conducted market analysis, competitor research, and stakeholder interviews to understand positioning and audience needs.
+                </p>
+              </div>
+            </div>
+            <div class="flex">
+              <div class="flex flex-col items-center mr-4">
+                <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white font-bold">2</div>
+                <div class="w-px h-full bg-accent mt-2"></div>
+              </div>
+              <div>
+                <h3 class="font-bold mb-2">Concept Development</h3>
+                <p class="text-muted">
+                  Created mood boards and explored multiple visual directions before narrowing down to three distinct concepts for presentation.
+                </p>
+              </div>
+            </div>
+            <div class="flex">
+              <div class="flex flex-col items-center mr-4">
+                <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white font-bold">3</div>
+                <div class="w-px h-full bg-accent mt-2"></div>
+              </div>
+              <div>
+                <h3 class="font-bold mb-2">Refinement</h3>
+                <p class="text-muted">
+                  Iterated on the selected concept based on feedback, refining the logo, color system, and typography to perfection.
+                </p>
+              </div>
+            </div>
+            <div class="flex">
+              <div class="flex flex-col items-center mr-4">
+                <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white font-bold">4</div>
+              </div>
+              <div>
+                <h3 class="font-bold mb-2">Implementation</h3>
+                <p class="text-muted">
+                  Developed comprehensive brand guidelines and created templates for various applications to ensure consistent implementation.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column -->
+      <div>
+        <!-- Project Details 
+        <div class="bg-secondary rounded-lg p-6 mb-8">
+          <h3 class="font-bold text-lg mb-4">Project Details</h3>
+          <div class="space-y-4">
+            <div>
+              <p class="text-muted text-sm">Client</p>
+              <p class="font-medium">Nova Technologies</p>
+            </div>
+            <div>
+              <p class="text-muted text-sm">Services</p>
+              <p class="font-medium">Brand Strategy, Visual Identity, Brand Guidelines</p>
+            </div>
+            <div>
+              <p class="text-muted text-sm">Deliverables</p>
+              <p class="font-medium">Logo System, Color Palette, Typography, Iconography, Brand Book</p>
+            </div>
+          </div>
+        </div>
+-->
+        <!-- Tools -->
+        <div class="bg-secondary rounded-lg p-6 mb-8">
+          <h3 class="font-bold text-lg mb-4">Tools Used</h3>
+          <div class="grid grid-cols-3 gap-4">
+            <div class="flex flex-col items-center tool-icon">
+              <i class="fas fa-pen-fancy text-2xl mb-2"></i>
+              <span class="text-xs">Illustrator</span>
+            </div>
+            <div class="flex flex-col items-center tool-icon">
+              <i class="fas fa-paint-brush text-2xl mb-2"></i>
+              <span class="text-xs">Photoshop</span>
+            </div>
+            <div class="flex flex-col items-center tool-icon">
+              <i class="fas fa-video text-2xl mb-2"></i>
+              <span class="text-xs">After Effects</span>
+            </div>
+          </div>
+        </div>
+            <!-- <div class="flex flex-col it</div>ems-center tool-icon">
+              <i class="fas fa-cube text-2xl mb-2"></i>
+              <span class="text-xs">Blender</span>
+            </div> 
+            <div class="flex flex-col items-center tool-icon">
+              <i class="fas fa-font text-2xl mb-2"></i>
+              <span class="text-xs">Typekit</span>
+            </div>
+            <div class="flex flex-col items-center tool-icon">
+              <i class="fas fa-book text-2xl mb-2"></i>
+              <span class="text-xs">InDesign</span>
+            </div>
+          </div>
+        </div>-->
+
+        <!-- Testimonial -->
+        <div class="bg-secondary rounded-lg p-6">
+          <div class="text-primary text-xl mb-3"><i class="fas fa-quote-left"></i></div>
+          <p class="italic text-muted mb-4">
+            
+          <div class="flex items-center">
+            <div class="w-10 h-10 rounded-full bg-accent mr-3"></div>
+            <div>
+              <p class="font-medium">Comments</p>
+              <p class="text-muted text-sm">yea, this project was fun to do!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="mt-16 text-center">
+      <h3 class="text-xl font-bold mb-4">Ready to create your brand identity?</h3>
+      <a href="#" class="inline-block bg-primary hover:bg-primary/90 text-white font-medium py-3 px-8 rounded-full glow-btn transition-all">
+        Get in Touch <i class="fas fa-arrow-right ml-2"></i>
+      </a>
+    </div>
+  </div>
+
+  <script>
+    // Simple animation for project images
+    document.querySelectorAll('.project-image').forEach(image => {
+      image.addEventListener('mouseenter', () => {
+        image.querySelector('img').style.transform = 'scale(1.05)';
+      });
+      image.addEventListener('mouseleave', () => {
+        image.querySelector('img').style.transform = 'scale(1)';
+      });
+    });
+    
+    // Back button functionality
+  
+  </script>
+</body>
+</html>
