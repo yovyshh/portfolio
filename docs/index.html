@@ -359,7 +359,7 @@
             <h2 class="section-title text-3xl font-bold mb-12">Get In Touch</h2>
             <div class="flex flex-col lg:flex-row gap-12">
                 <div class="lg:w-1/2">
-                    <form id="contactForm" class="space-y-6">
+                    <form action="https://docs.google.com/forms/d/e/1FAIpQLSfyGwWaFsS7tDSSB81o0z4JTZn_yManhU-zXSkYEwVVoyNEsw/formResponse" method="POST" target="_blank" class="space-y-6">
                         <div>
                             <label for="name" class="block text-light mb-2">Your Name</label>
                             <input type="text" name="entry.2068496097" id="name" class="w-full px-4 py-3 rounded-lg text-light focus:border-primary transition-all" required>
@@ -513,27 +513,7 @@
                 });
             });
         };
-//form for contact
-    document.getElementById("contactForm").addEventListener("submit", function(e) {
-    e.preventDefault();
 
-    const form = e.target;
-    const name = form.querySelector('#name').value;
-    const email = form.querySelector('#email').value;
-    const message = form.querySelector('#message').value;
-
-    const formURL = "https://docs.google.com/forms/u/0/d/e/1FAIpQLSfyGwWaFsS7tDSSB81o0z4JTZn_yManhU-zXSkYEwVVoyNEsw/formResponse";
-    const params = new URLSearchParams({
-        "entry.2068496097": name,
-        "entry.1905914208": email,
-        "entry.42831845": message
-    });
-
-    window.open(formURL + "?" + params.toString(), '_blank');
-
-    alert("Your message has been recorded. Thank you!");
-    form.reset();
-});
     </script>
 </body>
 </html>
