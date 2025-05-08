@@ -32,11 +32,39 @@
       scroll-behavior: smooth;
     }
     
+    /* Enhanced hero title with animation */
     .hero-gradient {
       background: linear-gradient(135deg, #F43F5E 0%, #8b5cf6 100%);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
+      animation: titleAnimation 3s ease-in-out infinite alternate;
+    }
+    
+    @keyframes titleAnimation {
+      0% {
+        transform: translateY(0);
+        text-shadow: 0 0 10px rgba(244, 63, 94, 0.3);
+      }
+      50% {
+        transform: translateY(-5px);
+        text-shadow: 0 0 20px rgba(244, 63, 94, 0.5);
+      }
+      100% {
+        transform: translateY(0);
+        text-shadow: 0 0 10px rgba(244, 63, 94, 0.3);
+      }
+    }
+    
+    /* Decorative background elements */
+    .decorative-circle {
+      position: absolute;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(244, 63, 94, 0.2) 0%, rgba(139, 92, 246, 0.1) 50%, transparent 70%);
+      filter: blur(40px);
+      z-index: -1;
+      opacity: 0.6;
+      transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
     
     .project-card {
@@ -45,11 +73,33 @@
       overflow: hidden;
       transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
       box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+      border: 1px solid transparent;
+      background: linear-gradient(#1F1F1F, #1F1F1F) padding-box,
+                  linear-gradient(145deg, #2D2D2D, rgba(244, 63, 94, 0.2)) border-box;
     }
     
     .project-card:hover {
-      transform: translateY(-8px);
+      transform: translateY(-8px) rotateX(2deg) rotateY(-2deg);
       box-shadow: 0 20px 25px -5px rgba(244, 63, 94, 0.3);
+    }
+    
+    .project-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 16px;
+      padding: 2px;
+      background: linear-gradient(145deg, rgba(244, 63, 94, 0.5), rgba(139, 92, 246, 0.5));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+    
+    .project-card:hover::after {
+      opacity: 1;
     }
     
     .project-overlay {
@@ -60,11 +110,13 @@
       background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 100%);
       padding: 1.5rem;
       opacity: 0;
-      transition: opacity 0.3s ease;
+      transform: translateY(10px);
+      transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     }
     
     .project-card:hover .project-overlay {
       opacity: 1;
+      transform: translateY(0);
     }
     
     .play-btn {
@@ -80,11 +132,30 @@
       align-items: center;
       justify-content: center;
       opacity: 0;
-      transition: all 0.3s ease;
+      transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 0 20px rgba(244, 63, 94, 0.5);
+      pointer-events: none;
+      animation: pulseGlow 2s ease-in-out infinite;
+    }
+    
+    @keyframes pulseGlow {
+      0%, 100% { box-shadow: 0 0 15px rgba(244, 63, 94, 0.5); transform: translate(-50%, -50%) scale(1); }
+      50% { box-shadow: 0 0 30px rgba(244, 63, 94, 0.7); transform: translate(-50%, -50%) scale(1.05); }
     }
     
     .project-card:hover .play-btn {
       opacity: 1;
+    }
+    
+    /* Video hover effect */
+    .project-card video {
+      transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      filter: brightness(0.8);
+    }
+    
+    .project-card:hover video {
+      filter: brightness(1.1);
+      transform: scale(1.02);
     }
     
     .tech-tag {
@@ -184,20 +255,9 @@
       border-radius: 4px;
     }
     
-    /* Section transition */
+    /* Section transition - removed line */
     .section-transition {
       position: relative;
-    }
-    
-    .section-transition::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, #F43F5E, #8b5cf6);
-      opacity: 0.3;
     }
     
     /* Animated back button */
@@ -262,7 +322,15 @@
   <link rel="icon" href="images/vysh.png" type="image/x-icon">
 </head>
 <body class="min-h-screen">
-  <div class="container mx-auto px-6 py-12 md:px-12">
+  <!-- Decorative background elements -->
+  <div class="fixed top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0 opacity-50">
+    <div class="decorative-circle absolute top-20 right-10 w-64 h-64 animate-pulse"></div>
+    <div class="decorative-circle absolute bottom-20 left-10 w-96 h-96 animate-pulse" style="animation-delay: 1s;"></div>
+    <div class="absolute top-1/3 left-1/4 w-10 h-10 border border-primary/20 rounded-full opacity-30"></div>
+    <div class="absolute bottom-1/4 right-1/3 w-20 h-20 border border-purple-500/20 rounded-full opacity-40"></div>
+  </div>
+  
+  <div class="container mx-auto px-6 py-12 md:px-12 relative z-10">
     <!-- Animated Back Button -->
     <a href="index.html" class="back-btn mb-6">
       <i class="fas fa-arrow-left mr-2"></i>
@@ -272,8 +340,14 @@
     <!-- Graphics Design Section -->
     <div class="section-transition pb-20">
       <!-- Graphics Design Header -->
-      <header class="mb-16 text-center">
-        <h1 class="text-4xl md:text-6xl font-bold mb-4 hero-gradient">Graphics Design Showcase</h1>
+      <header class="mb-16 text-center relative">
+        <!-- Decorative elements -->
+        <div class="absolute -top-10 -left-10 w-20 h-20 border border-primary/20 rounded-full opacity-50"></div>
+        <div class="absolute top-20 -right-5 w-10 h-10 border border-purple-500/20 rounded-full opacity-30"></div>
+        
+        <h1 class="text-4xl md:text-6xl font-bold mb-4 hero-gradient relative inline-block">
+          Graphics Design Showcase
+        </h1>
         <p class="text-xl text-muted max-w-3xl mx-auto">Crafting visual identities that communicate and captivate</p>
         <div class="section-divider"></div>
       </header>
@@ -324,8 +398,10 @@
       </div>
 
       <!-- GFX Process Section -->
-      <div class="bg-secondary rounded-2xl p-8 mb-20">
-        <h2 class="text-3xl font-bold mb-6 text-center">My Design Process</h2>
+      <div class="bg-secondary rounded-2xl p-8 mb-20 glassmorphism">
+        <h2 class="text-3xl font-bold mb-6 text-center hero-gradient relative inline-block">
+          My Design Process
+        </h2>
         <div class="grid md:grid-cols-3 gap-8">
           <div class="text-center">
             <div class="w-16 h-16 bg-purple-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -396,8 +472,14 @@
     </div>
 
     <!-- Motion Design Header -->
-    <header class="mb-16 text-center">
-      <h1 class="text-4xl md:text-6xl font-bold mb-4 hero-gradient">Animation Showcase</h1>
+    <header class="mb-16 text-center relative">
+      <!-- Decorative elements -->
+      <div class="absolute -top-10 -right-10 w-20 h-20 border border-purple-500/20 rounded-full opacity-50"></div>
+      <div class="absolute top-20 -left-5 w-10 h-10 border border-primary/20 rounded-full opacity-30"></div>
+      
+      <h1 class="text-4xl md:text-6xl font-bold mb-4 hero-gradient relative inline-block">
+        Animation Showcase
+      </h1>
       <p class="text-xl text-muted max-w-3xl mx-auto">Transforming static images into dynamic motion experiences</p>
       <div class="section-divider"></div>
     </header>
@@ -407,7 +489,8 @@
       <!-- Project 1 -->
       <div class="project-card group">
         <div class="relative">
-          <video class="w-full h-full object-cover" loop autoplay muted>
+          <video class="w-full h-full object-cover" loop autoplay muted playsinline controls
+                 onmouseover="this.play()" onmouseout="this.pause(); this.currentTime=0;">
             <source src="videos/yoo it worke.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
@@ -429,10 +512,14 @@
       <!-- Project 2 -->
       <div class="project-card group">
         <div class="relative">
-          <video class="w-full h-full object-cover" controls>
+          <video class="w-full h-full object-cover" loop autoplay muted playsinline controls
+                 onmouseover="this.play()" onmouseout="this.pause(); this.currentTime=0;">
             <source src="videos/for insta.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
+          <div class="play-btn">
+            <i class="fas fa-play text-light text-xl"></i>
+          </div>
         </div>
         <div class="project-overlay">
           <h3 class="text-xl font-bold mb-2">Animation 2</h3>
@@ -447,10 +534,14 @@
       <!-- Project 3 -->
       <div class="project-card group">
         <div class="relative">
-          <video class="w-full h-full object-cover" controls>
+          <video class="w-full h-full object-cover" loop autoplay muted playsinline controls
+                 onmouseover="this.play()" onmouseout="this.pause(); this.currentTime=0;">
             <source src="videos/animation3.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
+          <div class="play-btn">
+            <i class="fas fa-play text-light text-xl"></i>
+          </div>
         </div>
         <div class="project-overlay">
           <h3 class="text-xl font-bold mb-2">Animation 3</h3>
@@ -464,8 +555,10 @@
     </div>
 
     <!-- Process Section -->
-    <div class="bg-secondary rounded-2xl p-8 mb-20">
-      <h2 class="text-3xl font-bold mb-6 text-center">My Animation Process</h2>
+    <div class="bg-secondary rounded-2xl p-8 mb-20 glassmorphism">
+      <h2 class="text-3xl font-bold mb-6 text-center hero-gradient relative inline-block">
+        My Animation Process
+      </h2>
       <div class="grid md:grid-cols-3 gap-8">
         <div class="text-center">
           <div class="w-16 h-16 bg-rose-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -535,12 +628,25 @@
     </div>
 
     <!-- CTA -->
-    <div class="text-center">
-      <h3 class="text-2xl font-bold mb-4">Ready to bring your vision to life?</h3>
-      <p class="text-muted mb-6 max-w-2xl mx-auto">From motion to static, I can help you create compelling visual content that elevates your brand and engages your audience.</p>
-      <a href="mailto:vyisafk@gmail.com" class="inline-block bg-gradient-to-r from-primary to-purple-600 hover:from-rose-600 hover:to-purple-700 text-light font-medium py-3 px-8 rounded-full glow-btn transition-all mb-2 pulse">
-        Get in Touch <i class="fas fa-arrow-right ml-2"></i>
-      </a>
+    <div class="text-center relative">
+      <!-- Decorative elements -->
+      <div class="decorative-circle absolute -top-20 left-1/4 w-40 h-40"></div>
+      <div class="decorative-circle absolute -bottom-10 right-1/4 w-60 h-60"></div>
+      
+      <h3 class="text-2xl font-bold mb-4 hero-gradient inline-block relative">
+        Ready to bring your vision to life?
+      </h3>
+      <p class="text-muted mb-8 max-w-2xl mx-auto">From motion to static, I can help you create compelling visual content that elevates your brand and engages your audience.</p>
+      
+      <div class="flex flex-wrap justify-center gap-4 mb-6">
+        <a href="mailto:vyisafk@gmail.com" class="inline-block bg-gradient-to-r from-primary to-purple-600 hover:from-rose-600 hover:to-purple-700 text-light font-medium py-3 px-8 rounded-full glow-btn transition-all pulse">
+          Get in Touch <i class="fas fa-arrow-right ml-2"></i>
+        </a>
+        <a href="#" class="inline-block bg-secondary hover:bg-accent text-light font-medium py-3 px-8 rounded-full transition-all border border-purple-500/30 hover:border-purple-500/60">
+          View Resume <i class="fas fa-file-alt ml-2"></i>
+        </a>
+      </div>
+      
       <p class="text-sm text-muted"> <a href="mailto:vyisafk@gmail.com" class="text-purple-400 hover:underline">vyisafk@gmail.com</a></p>
     </div>
   </div>

@@ -57,16 +57,26 @@
       scroll-behavior: smooth;
     }
 
+    /* Enhanced gradient text effect with animation */
     .hero-text {
       background: linear-gradient(90deg, #E5E5E5, #F43F5E);
+      background-size: 200% auto;
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
       font-size: 3.5rem;
       line-height: 1.2;
       font-weight: 700;
+      animation: gradient-shift 8s ease infinite;
+    }
+    
+    @keyframes gradient-shift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
+    /* Improved section title with animated underline */
     .section-title {
       position: relative;
       display: inline-block;
@@ -80,48 +90,82 @@
       width: 40px;
       height: 2px;
       background: linear-gradient(to right, #F43F5E, #F43F5E80);
+      transition: width 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+                 box-shadow 0.4s ease;
     }
 
+    .section-title:hover::after {
+      width: 100%;
+      box-shadow: 0 0 10px rgba(244, 63, 94, 0.5);
+    }
+
+    /* Enhanced card with 3D hover effect */
     .card {
-      transition: all 0.3s ease;
+      transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       border: 1px solid transparent;
       background: linear-gradient(#1F1F1F, #1F1F1F) padding-box,
                   linear-gradient(145deg, #2D2D2D, #F43F5E20) border-box;
       backdrop-filter: blur(6px);
       border-radius: 1rem;
       padding: 2rem;
+      transform-style: preserve-3d;
+      perspective: 1000px;
     }
 
     .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(244, 63, 94, 0.3);
+      transform: translateY(-8px) rotateX(2deg) rotateY(-2deg);
+      box-shadow: 0 15px 30px rgba(244, 63, 94, 0.3);
     }
 
+    /* Improved graphics item with advanced hover effects */
     .gfx-item {
-      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
       overflow: hidden;
       position: relative;
       border-radius: 1rem;
       background: #1F1F1F;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .gfx-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, rgba(244, 63, 94, 0.1), transparent);
+      opacity: 0;
+      z-index: 1;
+      transition: opacity 0.5s ease;
+    }
+
+    .gfx-item:hover::before {
+      opacity: 1;
     }
 
     .gfx-item:hover {
-      transform: scale(0.98);
+      transform: translateY(-5px) scale(0.98);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3), 0 0 15px rgba(244, 63, 94, 0.3);
     }
 
     .gfx-item img {
-      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s ease;
       display: block;
       width: 100%;
       height: auto;
+      filter: brightness(90%);
     }
 
     .gfx-item:hover img {
       transform: scale(1.05);
+      filter: brightness(110%);
     }
 
+    /* Enhanced navigation link with centered animation */
     .nav-link {
       position: relative;
+      transition: color 0.3s ease;
     }
 
     .nav-link::after {
@@ -130,37 +174,75 @@
       width: 0;
       height: 2px;
       bottom: -2px;
-      left: 0;
-      background: linear-gradient(to right, #F43F5E, #F43F5E00);
-      transition: width 0.3s ease;
+      left: 50%;
+      background: linear-gradient(to right, #F43F5E, #F43F5E90);
+      transition: width 0.3s ease, left 0.3s ease, box-shadow 0.3s ease;
+      transform: translateX(-50%);
     }
 
     .nav-link:hover::after {
       width: 100%;
+      box-shadow: 0 0 8px rgba(244, 63, 94, 0.5);
     }
 
+    /* Enhanced primary button with glow effect */
     .btn-primary {
-      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       background: linear-gradient(145deg, #F43F5E, #F43F5E90);
       box-shadow: 0 4px 15px rgba(244, 63, 94, 0.3);
+      z-index: 1;
+    }
+
+    .btn-primary::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(244, 63, 94, 0.3) 0%, transparent 70%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      z-index: -1;
     }
 
     .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(244, 63, 94, 0.4);
+      transform: translateY(-4px);
+      box-shadow: 0 8px 25px rgba(244, 63, 94, 0.5);
     }
 
+    .btn-primary:hover::after {
+      opacity: 1;
+    }
+
+    /* Improved back button with icon animation */
     .back-btn {
-      transition: all 0.3s ease;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .back-btn i {
+      transition: transform 0.3s ease;
     }
 
     .back-btn:hover {
       color: #F43F5E;
+      transform: translateX(-5px);
     }
 
+    .back-btn:hover i {
+      transform: translateX(-3px);
+    }
+
+    /* Enhanced process steps with hover effects */
     .process-step {
       position: relative;
       padding-left: 2rem;
+      transition: all 0.3s ease;
     }
 
     .process-step::before {
@@ -172,52 +254,121 @@
       height: 8px;
       border-radius: 50%;
       background: #F43F5E;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
+    .process-step:hover::before {
+      transform: scale(1.5);
+      box-shadow: 0 0 10px rgba(244, 63, 94, 0.7);
+    }
+
+    /* Improved tool icon animations */
     .tool-icon {
-      transition: all 0.3s ease;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
 
     .tool-icon:hover {
-      transform: translateY(-3px);
+      transform: translateY(-8px) scale(1.15);
       color: #F43F5E;
     }
 
+    /* Enhanced logo preview with 3D float animation */
     .logo-preview {
       animation: float 6s ease-in-out infinite;
+      filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.3));
+      transition: filter 0.5s ease;
     }
 
+    .logo-preview:hover {
+      filter: drop-shadow(0 15px 20px rgba(244, 63, 94, 0.4));
+    }
+    
+    /* Logo title animation similar to site2.html */
+    .logo-title {
+      background: linear-gradient(90deg, #E5E5E5, #F43F5E);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: titleAnimation 3s ease-in-out infinite alternate;
+      position: relative;
+    }
+    
+    @keyframes titleAnimation {
+      0% {
+        transform: translateY(0);
+        text-shadow: 0 0 10px rgba(244, 63, 94, 0.3);
+      }
+      50% {
+        transform: translateY(-5px);
+        text-shadow: 0 0 20px rgba(244, 63, 94, 0.5);
+      }
+      100% {
+        transform: translateY(0);
+        text-shadow: 0 0 10px rgba(244, 63, 94, 0.3);
+      }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      25% { transform: translateY(-10px) rotate(1deg); }
+      50% { transform: translateY(0) rotate(0deg); }
+      75% { transform: translateY(-5px) rotate(-1deg); }
+    }
+
+    /* Improved color swatch with tooltip effect */
     .color-swatch {
-      transition: all 0.3s ease;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
     }
 
     .color-swatch:hover {
-      transform: scale(1.05);
+      transform: translateY(-5px) scale(1.1);
+      z-index: 10;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
     }
 
+    /* Enhanced glassmorphism effect */
     .glassmorphism {
       background: rgba(31, 31, 31, 0.4);
       border: 1px solid rgba(244, 63, 94, 0.15);
       backdrop-filter: blur(10px);
+      transition: all 0.4s ease;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    .glassmorphism:hover {
+      background: rgba(31, 31, 31, 0.5);
+      border: 1px solid rgba(244, 63, 94, 0.25);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2), 0 0 15px rgba(244, 63, 94, 0.1);
     }
   </style>
   <link rel="icon" href="images/vysh.png" type="image/x-icon">
 </head>
 
 <body class="px-4 py-8 md:px-12 md:py-16">
-  <div class="max-w-6xl mx-auto animate-fade-in">
+  <!-- Decorative background elements -->
+  <div class="fixed top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0 opacity-50">
+    <div class="absolute top-20 right-10 w-64 h-64 bg-primary/5 rounded-full blur-3xl animate-pulse"></div>
+    <div class="absolute bottom-20 left-10 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-pulse" style="animation-delay: 1s;"></div>
+  </div>
+  
+  <div class="max-w-6xl mx-auto animate-fade-in relative z-10">
     <!-- Back Button -->
-    <a href="index.html" class="back-btn inline-flex items-center text-muted mb-12 text-lg hover:text-primary transition">
-      <i class="fas fa-arrow-left mr-2"></i>
-      Back to Portfolio
+    <a href="index.html" class="back-btn inline-flex items-center text-muted mb-12 text-lg hover:text-primary transition group">
+      <i class="fas fa-arrow-left mr-2 group-hover:transform group-hover:-translate-x-1 transition-transform"></i>
+      <span>Back to Portfolio</span>
     </a>
 
     <!-- Hero Section -->
-    <div class="mb-20">
-      <h1 class="hero-text text-5xl md:text-6xl font-bold leading-tight tracking-tight">
+    <div class="mb-20 relative">
+      <div class="absolute -top-10 -left-10 w-20 h-20 border border-primary/20 rounded-full opacity-50"></div>
+      <div class="absolute top-20 -right-5 w-10 h-10 border border-primary/20 rounded-full opacity-30"></div>
+      
+      <h1 class="text-5xl md:text-6xl font-bold leading-tight tracking-tight relative inline-block logo-title">
         Logo Designs
+        <span class="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-primary to-transparent opacity-50"></span>
       </h1>
-      <p class="text-xl text-muted mt-4 max-w-3xl">Creating a futuristic visual identity for an innovative tech startup</p>
+      <p class="text-xl text-muted mt-6 max-w-3xl leading-relaxed">Creating a futuristic visual identity for an innovative tech startup with a focus on brand recognition and versatility</p>
     </div>
 
     <!-- Project Meta -->
@@ -272,34 +423,83 @@
           </div>
         </div>
 
-        <!-- Gallery -->
-        <div class="glassmorphism p-8 rounded-xl border border-accent/30">
-          <h2 class="text-3xl font-bold mb-10 section-title">Blur Ltd</h2>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="gfx-item rounded-xl overflow-hidden flex items-center justify-center p-8 bg-secondary">
-              <img src="images/blurpng.png" alt="Logo Design" class="w-full max-w-xs logo-preview">
-            </div>
-            <div class="gfx-item rounded-xl overflow-hidden p-8 bg-secondary">
-              <h3 class="font-bold mb-4 text-lg">Color Palette</h3>
-              <div class="grid grid-cols-4 gap-4">
-                <div class="color-swatch h-16 rounded-lg bg-primary flex items-center justify-center text-xs font-medium text-white shadow-md shadow-primary/30">Primary</div>
-                <div class="color-swatch h-16 rounded-lg bg-dark flex items-center justify-center text-xs font-medium text-white shadow-md shadow-dark/30">Dark</div>
-                <div class="color-swatch h-16 rounded-lg bg-secondary flex items-center justify-center text-xs font-medium text-light shadow-md shadow-secondary/30">Secondary</div>
-                <div class="color-swatch h-16 rounded-lg bg-accent flex items-center justify-center text-xs font-medium text-light shadow-md shadow-accent/30">Accent</div>
+        <!-- Gallery with enhanced interactive elements -->
+        <div class="glassmorphism p-8 rounded-xl border border-accent/30 relative overflow-hidden group">
+          <!-- Decorative elements -->
+          <div class="absolute -top-20 -right-20 w-40 h-40 bg-primary/10 rounded-full blur-xl opacity-0 group-hover:opacity-70 transition-all duration-1000"></div>
+          
+          <h2 class="text-3xl font-bold mb-10 section-title relative z-10 logo-title">Blur Ltd</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="gfx-item rounded-xl overflow-hidden flex items-center justify-center p-8 bg-secondary/80 backdrop-blur-sm relative group/item">
+              <!-- Spotlight effect on hover -->
+              <div class="absolute inset-0 opacity-0 group-hover/item:opacity-100 transition-opacity duration-700 bg-gradient-to-br from-primary/5 to-transparent"></div>
+              
+              <img src="images/blurpng.png" alt="Logo Design" class="w-full max-w-xs logo-preview relative z-10">
+              
+              <!-- Logo info tooltip -->
+              <div class="absolute bottom-0 left-0 right-0 bg-dark/80 backdrop-blur-md p-4 transform translate-y-full group-hover/item:translate-y-0 transition-transform duration-500 ease-out">
+                <h4 class="text-sm font-semibold text-primary">About This Logo</h4>
+                <p class="text-xs text-light/80 mt-1">Minimalist design with a focus on typography and subtle motion</p>
               </div>
             </div>
-            <div class="gfx-item rounded-xl overflow-hidden col-span-1 md:col-span-2">
-              <video class="w-full h-auto rounded-xl shadow-lg hover:shadow-primary/20 transition" controls poster="images/blurpng.png">
+            
+            <div class="gfx-item rounded-xl overflow-hidden p-8 bg-secondary/80 backdrop-blur-sm relative group/colors">
+              <h3 class="font-bold mb-6 text-lg inline-block relative">
+                Color Palette
+                <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover/colors:w-full transition-all duration-500"></span>
+              </h3>
+              
+              <div class="grid grid-cols-4 gap-4">
+                <div class="color-swatch h-20 rounded-lg bg-primary flex flex-col items-center justify-center text-xs font-medium text-white shadow-md shadow-primary/30 relative overflow-hidden">
+                  <span class="z-10">Primary</span>
+                  <span class="text-[10px] mt-1 opacity-70 z-10">#F43F5E</span>
+                  <div class="absolute inset-0 bg-white/10 opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                
+                <div class="color-swatch h-20 rounded-lg bg-dark flex flex-col items-center justify-center text-xs font-medium text-white shadow-md shadow-dark/30 relative overflow-hidden">
+                  <span class="z-10">Dark</span>
+                  <span class="text-[10px] mt-1 opacity-70 z-10">#0F0F0F</span>
+                  <div class="absolute inset-0 bg-white/10 opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                
+                <div class="color-swatch h-20 rounded-lg bg-secondary flex flex-col items-center justify-center text-xs font-medium text-light shadow-md shadow-secondary/30 relative overflow-hidden">
+                  <span class="z-10">Secondary</span>
+                  <span class="text-[10px] mt-1 opacity-70 z-10">#1F1F1F</span>
+                  <div class="absolute inset-0 bg-white/10 opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                
+                <div class="color-swatch h-20 rounded-lg bg-accent flex flex-col items-center justify-center text-xs font-medium text-light shadow-md shadow-accent/30 relative overflow-hidden">
+                  <span class="z-10">Accent</span>
+                  <span class="text-[10px] mt-1 opacity-70 z-10">#2D2D2D</span>
+                  <div class="absolute inset-0 bg-white/10 opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="gfx-item rounded-xl overflow-hidden col-span-1 md:col-span-2 relative group/video">
+              <!-- Video overlay with play icon -->
+              <div class="absolute inset-0 bg-gradient-to-t from-dark/70 to-transparent z-10 opacity-100 group-hover/video:opacity-0 transition-opacity duration-500 pointer-events-none flex items-center justify-center">
+                <div class="w-16 h-16 rounded-full bg-primary/80 flex items-center justify-center text-white pointer-events-none">
+                  <i class="fas fa-play"></i>
+                </div>
+              </div>
+              
+              <video class="w-full h-auto rounded-xl shadow-lg transition-all duration-500 group-hover/video:brightness-110" poster="images/blurpng.png" preload="metadata" autoplay loop muted playsinline controls>
                 <source src="videos/BLUR.mp4" type="video/mp4">
                 Your browser does not support the video tag.
               </video>
+              
+              <!-- Caption -->
+              <div class="absolute bottom-0 left-0 right-0 p-4 bg-dark/70 backdrop-blur-sm transform translate-y-full group-hover/video:translate-y-0 transition-transform duration-500 ease-out">
+                <p class="text-sm text-light">Logo animation showcasing versatility across different contexts</p>
+              </div>
             </div>
           </div>
         </div>
 
          <!-- Gallery -->
          <div class="glassmorphism p-8 rounded-xl border border-accent/30">
-          <h2 class="text-3xl font-bold mb-10 section-title">8bits</h2>
+          <h2 class="text-3xl font-bold mb-10 section-title logo-title">8bits</h2>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div class="gfx-item rounded-xl overflow-hidden flex items-center justify-center p-8 bg-secondary">
             <img src="images/8 bits.png" alt="Logo Design" class="w-full max-w-xs logo-preview">
@@ -312,19 +512,29 @@
             <div class="color-swatch h-16 rounded-lg bg-white flex items-center justify-center text-xs font-medium text-black shadow-md shadow-gray-300/30">White</div>
             </div>
           </div>
-          <!-- 
-          <div class="gfx-item rounded-xl overflow-hidden col-span-1 md:col-span-2">
-            <video class="w-full h-auto rounded-xl shadow-lg hover:shadow-primary/20 transition" controls poster="images/8 bits.png">
-            <source src="" type="video/mp4">
-            Your browser does not support the video tag.
+          <div class="gfx-item rounded-xl overflow-hidden col-span-1 md:col-span-2 relative group/video">
+            <!-- Video overlay with play icon -->
+            <div class="absolute inset-0 bg-gradient-to-t from-dark/70 to-transparent z-10 opacity-100 group-hover/video:opacity-0 transition-opacity duration-500 pointer-events-none flex items-center justify-center">
+              <div class="w-16 h-16 rounded-full bg-primary/80 flex items-center justify-center text-white pointer-events-none">
+                <i class="fas fa-play"></i>
+              </div>
+            </div>
+            
+            <video class="w-full h-auto rounded-xl shadow-lg transition-all duration-500 group-hover/video:brightness-110" poster="images/8 bits.png" preload="metadata" autoplay loop muted playsinline controls>
+              <source src="videos/animation.mp4" type="video/mp4">
+              Your browser does not support the video tag.
             </video>
+            
+            <!-- Caption -->
+            <div class="absolute bottom-0 left-0 right-0 p-4 bg-dark/70 backdrop-blur-sm transform translate-y-full group-hover/video:translate-y-0 transition-transform duration-500 ease-out">
+              <p class="text-sm text-light">Logo animation showcasing versatility across different contexts</p>
+            </div>
           </div>
-          -->
           </div>
         </div>
           <!-- Gallery -->
           <div class="glassmorphism p-8 rounded-xl border border-accent/30">
-            <h2 class="text-3xl font-bold mb-10 section-title">Vyshh</h2>
+            <h2 class="text-3xl font-bold mb-10 section-title logo-title">Vyshh</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div class="gfx-item rounded-xl overflow-hidden flex items-center justify-center p-8 bg-secondary">
               <img src="images/vysh.png" alt="Logo Design" class="w-full max-w-xs logo-preview">
@@ -338,11 +548,23 @@
               </div>
             </div>
             
-            <div class="gfx-item rounded-xl overflow-hidden col-span-1 md:col-span-2">
-              <video class="w-full h-auto rounded-xl shadow-lg hover:shadow-primary/20 transition" controls poster="images/vysh.png">
+            <div class="gfx-item rounded-xl overflow-hidden col-span-1 md:col-span-2 relative group/video">
+              <!-- Video overlay with play icon -->
+              <div class="absolute inset-0 bg-gradient-to-t from-dark/70 to-transparent z-10 opacity-100 group-hover/video:opacity-0 transition-opacity duration-500 pointer-events-none flex items-center justify-center">
+                <div class="w-16 h-16 rounded-full bg-primary/80 flex items-center justify-center text-white pointer-events-none">
+                  <i class="fas fa-play"></i>
+                </div>
+              </div>
+              
+              <video class="w-full h-auto rounded-xl shadow-lg transition-all duration-500 group-hover/video:brightness-110" poster="images/vysh.png" preload="metadata" autoplay loop muted playsinline controls>
               <source src="videos/compilation.mp4" type="video/mp4">
               Your browser does not support the video tag.
               </video>
+              
+              <!-- Caption -->
+              <div class="absolute bottom-0 left-0 right-0 p-4 bg-dark/70 backdrop-blur-sm transform translate-y-full group-hover/video:translate-y-0 transition-transform duration-500 ease-out">
+                <p class="text-sm text-light">Logo animation showcasing versatility across different contexts</p>
+              </div>
             </div>
             
             </div>

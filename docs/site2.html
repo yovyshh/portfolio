@@ -40,6 +40,23 @@
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
+      animation: titleAnimation 3s ease-in-out infinite alternate;
+      position: relative;
+    }
+    
+    @keyframes titleAnimation {
+      0% {
+        transform: translateY(0);
+        text-shadow: 0 0 10px rgba(244, 63, 94, 0.3);
+      }
+      50% {
+        transform: translateY(-5px);
+        text-shadow: 0 0 20px rgba(244, 63, 94, 0.5);
+      }
+      100% {
+        transform: translateY(0);
+        text-shadow: 0 0 10px rgba(244, 63, 94, 0.3);
+      }
     }
     
     .video-container {
@@ -47,11 +64,34 @@
       overflow: hidden;
       border-radius: 12px;
       transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
     }
     
     .video-container:hover {
       transform: translateY(-5px);
       box-shadow: 0 15px 30px rgba(244, 63, 94, 0.25);
+      filter: brightness(1.1);
+    }
+    
+    /* Add decorative elements */
+    .video-container::before {
+      content: '';
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #F43F5E, transparent);
+      opacity: 0.5;
+      filter: blur(10px);
+      z-index: 1;
+      transition: all 0.5s ease;
+    }
+    
+    .video-container:hover::before {
+      transform: scale(1.5);
+      opacity: 0.8;
     }
     
     .video-overlay {
@@ -66,11 +106,27 @@
       justify-content: flex-end;
       padding: 1.5rem;
       opacity: 0;
-      transition: opacity 0.3s ease;
+      transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     }
     
     .video-container:hover .video-overlay {
       opacity: 1;
+    }
+    
+    /* Add animated border on hover */
+    .video-container::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border: 0px solid rgba(244, 63, 94, 0);
+      border-radius: 12px;
+      transition: all 0.4s ease;
+      pointer-events: none;
+    }
+    
+    .video-container:hover::after {
+      border: 2px solid rgba(244, 63, 94, 0.7);
+      box-shadow: inset 0 0 20px rgba(244, 63, 94, 0.3);
     }
     
     .play-icon {
@@ -86,11 +142,27 @@
       align-items: center;
       justify-content: center;
       opacity: 0;
-      transition: all 0.3s ease;
+      transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 0 0 0 rgba(244, 63, 94, 0.5);
+      pointer-events: none;
     }
     
     .video-container:hover .play-icon {
       opacity: 1;
+      box-shadow: 0 0 0 10px rgba(244, 63, 94, 0.2);
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(244, 63, 94, 0.5);
+      }
+      70% {
+        box-shadow: 0 0 0 15px rgba(244, 63, 94, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(244, 63, 94, 0);
+      }
     }
     
     .nav-link {
@@ -211,16 +283,25 @@
     </a>
     
     <!-- Header -->
-    <div class="mb-12 text-center">
-      <h1 class="text-4xl md:text-5xl font-bold mb-4 hero-text">Motion showcase</h1>
-      <p class="text-xl text-muted max-w-3xl mx-auto">A curated collection of my best motion design projects - exploring the intersection of creativity and technology</p>
+    <div class="mb-12 text-center relative">
+      <!-- Decorative elements -->
+      <div class="absolute top-0 left-1/4 w-20 h-20 bg-primary/10 rounded-full filter blur-xl"></div>
+      <div class="absolute bottom-0 right-1/4 w-16 h-16 bg-primary/20 rounded-full filter blur-xl"></div>
+      
+      <h1 class="text-4xl md:text-5xl font-bold mb-4 hero-text relative inline-block">
+        Motion showcase
+        <span class="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary to-transparent"></span>
+      </h1>
+      <p class="text-xl text-muted max-w-3xl mx-auto relative z-10">
+        A curated collection of my best motion design projects - exploring the intersection of creativity and technology
+      </p>
     </div>
 
     <!-- Video Grid -->
     <div class="video-grid mb-16">
       <!-- Project 1 -->
       <div class="video-container group">
-        <video class="w-full h-auto" poster="images/thumbnails/thumb1.png" preload="metadata">
+        <video class="w-full h-auto" poster="images/thumbnails/thumb1.png" preload="metadata" onmouseover="this.play()" onmouseout="this.pause(); this.currentTime=0;" controls>
           <source src="videos/15fps.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
@@ -240,7 +321,7 @@
       
       <!-- Project 2 -->
       <div class="video-container group">
-        <video class="w-full h-auto" poster="images/thumbnails/Bloodfllow.png" preload="metadata">
+        <video class="w-full h-auto" poster="images/thumbnails/Bloodfllow.png" preload="metadata" onmouseover="this.play()" onmouseout="this.pause(); this.currentTime=0;" controls>
           <source src="videos/Blood Flow.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
@@ -260,7 +341,7 @@
       
       <!-- Project 3 -->
       <div class="video-container group">
-        <video class="w-full h-auto" poster="images/thumbnails/thumbcoll.png" preload="metadata">
+        <video class="w-full h-auto" poster="images/thumbnails/thumbcoll.png" preload="metadata" onmouseover="this.play()" onmouseout="this.pause(); this.currentTime=0;" controls>
           <source src="videos/test.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
@@ -280,7 +361,7 @@
       
       <!-- Project 4 -->
       <div class="video-container group">
-        <video class="w-full h-auto" poster="images/thumbnails/thumbcine.png" preload="metadata">
+        <video class="w-full h-auto" poster="images/thumbnails/thumbcine.png" preload="metadata" onmouseover="this.play()" onmouseout="this.pause(); this.currentTime=0;" controls>
           <source src="videos/Cine edit 1.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
@@ -300,7 +381,7 @@
       
       <!-- Project 5 -->
       <div class="video-container group">
-        <video class="w-full h-auto" poster="images/thumbnails/thumbval.png" preload="metadata">
+        <video class="w-full h-auto" poster="images/thumbnails/thumbval.png" preload="metadata" onmouseover="this.play()" onmouseout="this.pause(); this.currentTime=0;" controls>
           <source src="videos/lul.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
@@ -318,7 +399,7 @@
       
       <!-- Project 6 -->
       <div class="video-container group">
-        <video class="w-full h-auto" poster="images/thumbnails/thumboreki.png" preload="metadata">
+        <video class="w-full h-auto" poster="images/thumbnails/thumboreki.png" preload="metadata" onmouseover="this.play()" onmouseout="this.pause(); this.currentTime=0;" controls>
           <source src="videos/OREKI.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
@@ -339,21 +420,21 @@
 
     <!-- Stats Section -->
     <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
-      <div class="bg-secondary rounded-xl p-6 text-center">
-        <div class="text-3xl font-bold text-primary mb-2">350+</div>
-        <div class="text-sm text-muted">Projects Completed</div>
+      <div class="bg-secondary rounded-xl p-6 text-center group hover:bg-secondary/80 transition-all duration-300 hover:transform hover:scale-105 hover:shadow-lg hover:shadow-primary/20">
+        <div class="text-3xl font-bold text-primary mb-2 group-hover:scale-110 transition-transform duration-300">350+</div>
+        <div class="text-sm text-muted group-hover:text-light transition-colors duration-300">Projects Completed</div>
       </div>
-      <div class="bg-secondary rounded-xl p-6 text-center">
-        <div class="text-3xl font-bold text-primary mb-2">5</div>
-        <div class="text-sm text-muted">Years Experience</div>
+      <div class="bg-secondary rounded-xl p-6 text-center group hover:bg-secondary/80 transition-all duration-300 hover:transform hover:scale-105 hover:shadow-lg hover:shadow-primary/20">
+        <div class="text-3xl font-bold text-primary mb-2 group-hover:scale-110 transition-transform duration-300">5</div>
+        <div class="text-sm text-muted group-hover:text-light transition-colors duration-300">Years Experience</div>
       </div>
-      <div class="bg-secondary rounded-xl p-6 text-center">
-        <div class="text-3xl font-bold text-primary mb-2">6</div>
-        <div class="text-sm text-muted">Software Mastered</div>
+      <div class="bg-secondary rounded-xl p-6 text-center group hover:bg-secondary/80 transition-all duration-300 hover:transform hover:scale-105 hover:shadow-lg hover:shadow-primary/20">
+        <div class="text-3xl font-bold text-primary mb-2 group-hover:scale-110 transition-transform duration-300">6</div>
+        <div class="text-sm text-muted group-hover:text-light transition-colors duration-300">Software Mastered</div>
       </div>
-      <div class="bg-secondary rounded-xl p-6 text-center">
-        <div class="text-3xl font-bold text-primary mb-2">∞</div>
-        <div class="text-sm text-muted">Creative Ideas</div>
+      <div class="bg-secondary rounded-xl p-6 text-center group hover:bg-secondary/80 transition-all duration-300 hover:transform hover:scale-105 hover:shadow-lg hover:shadow-primary/20">
+        <div class="text-3xl font-bold text-primary mb-2 group-hover:scale-110 transition-transform duration-300">∞</div>
+        <div class="text-sm text-muted group-hover:text-light transition-colors duration-300">Creative Ideas</div>
       </div>
     </div>
 
@@ -434,13 +515,25 @@
     </div>-->
 
     <!-- CTA -->
-    <div class="text-center">
-      <h3 class="text-2xl font-bold mb-4">Ready to bring motion to your project?</h3>
+    <div class="text-center relative">
+      <!-- Decorative elements -->
+      <div class="absolute -top-10 left-1/3 w-24 h-24 bg-primary/10 rounded-full filter blur-xl"></div>
+      <div class="absolute -bottom-10 right-1/3 w-32 h-32 bg-primary/5 rounded-full filter blur-xl"></div>
+      
+      <h3 class="text-2xl font-bold mb-4 relative inline-block">
+        Ready to bring motion to your project?
+        <span class="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-primary/50 to-transparent"></span>
+      </h3>
       <p class="text-muted mb-6 max-w-2xl mx-auto">From concept to final render, I can help you create compelling motion content that elevates your brand and engages your audience.</p>
-      <a href="mailto:vyisafk@gmail.com" class="inline-block bg-primary hover:bg-primary/90 text-white font-medium py-3 px-8 rounded-full glow-btn transition-all mb-2">
-        Email me  <i class="fas fa-arrow-right ml-2"></i>
-      </a>
-      <p class="text-sm text-muted"> <a href="mailto:vyisafk@gmail.com" class="text-primary hover:underline">vyisafk@gmail.com</a></p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="mailto:vyisafk@gmail.com" class="inline-block bg-primary hover:bg-primary/90 text-white font-medium py-3 px-8 rounded-full glow-btn transition-all">
+          Email me <i class="fas fa-arrow-right ml-2"></i>
+        </a>
+        <a href="index.html#contact" class="inline-block bg-secondary hover:bg-secondary/90 text-white font-medium py-3 px-8 rounded-full transition-all hover:shadow-lg hover:shadow-primary/20">
+          Contact Form <i class="fas fa-envelope ml-2"></i>
+        </a>
+      </div>
+      <p class="text-sm text-muted mt-4"> <a href="mailto:vyisafk@gmail.com" class="text-primary hover:underline">vyisafk@gmail.com</a></p>
     </div>
   </div>
 
