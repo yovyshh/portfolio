@@ -21,128 +21,13 @@
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
-                    },
+                    }
                 }
             }
         }
     </script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-
-        * {
-            box-sizing: border-box;
-        }
-        
-        html, body {
-            overflow-x: hidden;
-            width: 100%;
-            position: relative;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #0F0F0F;
-            color: #E5E5E5;
-            scroll-behavior: smooth;
-            margin: 0;
-            padding: 0;
-        }
-
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .animate-fade-in {
-            animation: fadeIn 0.8s ease-out forwards;
-        }
-
-        /* Wireframe effect */
-        .wireframe-grid {
-            background-image: linear-gradient(rgba(244, 63, 94, 0.05) 1px, transparent 1px),
-                            linear-gradient(90deg, rgba(244, 63, 94, 0.05) 1px, transparent 1px);
-            background-size: 20px 20px;
-        }
-
-        /* Design system elements */
-        .color-swatch {
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .color-swatch:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-        }
-
-        /* UI component showcase */
-        .ui-component {
-            border: 1px solid rgba(244, 63, 94, 0.2);
-            transition: all 0.3s ease;
-        }
-
-        .ui-component:hover {
-            border-color: rgba(244, 63, 94, 0.5);
-            box-shadow: 0 5px 15px rgba(244, 63, 94, 0.1);
-        }
-
-        /* Process steps */
-        .process-step {
-            position: relative;
-        }
-
-        .process-step::after {
-            content: '';
-            position: absolute;
-            top: 2.5rem;
-            left: 50%;
-            width: 1px;
-            height: calc(100% - 2.5rem);
-            background: linear-gradient(to bottom, rgba(244, 63, 94, 0.5), transparent);
-            z-index: 0;
-        }
-
-        .process-step:last-child::after {
-            display: none;
-        }
-
-        /* Mobile responsiveness improvements */
-        img, video {
-            max-width: 100%;
-            height: auto;
-        }
-        
-        /* Fix for horizontal scroll issues */
-        .overflow-x-auto {
-            -webkit-overflow-scrolling: touch;
-            scrollbar-width: thin;
-        }
-        
-        /* Ensure content doesn't overflow on small screens */
-        @media (max-width: 640px) {
-            .container {
-                width: 100%;
-                padding-left: 1rem;
-                padding-right: 1rem;
-            }
-            
-            /* Adjust font sizes for mobile */
-            h1 {
-                font-size: 2.5rem !important;
-            }
-            
-            h2 {
-                font-size: 1.75rem !important;
-            }
-            
-            /* Ensure grid items don't cause overflow */
-            .grid {
-                margin-left: 0 !important;
-                margin-right: 0 !important;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/main.css">
     <link rel="icon" href="images/vysh.png" type="image/x-icon">
 </head>
 
