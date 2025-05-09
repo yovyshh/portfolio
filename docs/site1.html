@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
   <title>Brand Identity for Nova | Vaishnav T. Prakash</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -50,11 +51,23 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
+    * {
+      box-sizing: border-box;
+    }
+    
+    html, body {
+      overflow-x: hidden;
+      width: 100%;
+      position: relative;
+    }
+
     body {
       font-family: 'Inter', sans-serif;
       background-color: #0F0F0F;
       color: #E5E5E5;
       scroll-behavior: smooth;
+      margin: 0;
+      padding: 0;
     }
 
     /* Enhanced gradient text effect with animation */
@@ -341,15 +354,51 @@
       border: 1px solid rgba(244, 63, 94, 0.25);
       box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2), 0 0 15px rgba(244, 63, 94, 0.1);
     }
+    
+    /* Mobile responsiveness improvements */
+    img, video {
+      max-width: 100%;
+      height: auto;
+    }
+    
+    /* Fix for horizontal scroll issues */
+    .overflow-x-auto {
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+    }
+    
+    /* Ensure content doesn't overflow on small screens */
+    @media (max-width: 640px) {
+      .container {
+        width: 100%;
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+      
+      /* Adjust font sizes for mobile */
+      h1 {
+        font-size: 2.5rem !important;
+      }
+      
+      h2 {
+        font-size: 1.75rem !important;
+      }
+      
+      /* Ensure grid items don't cause overflow */
+      .grid {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+      }
+    }
   </style>
   <link rel="icon" href="images/vysh.png" type="image/x-icon">
 </head>
 
 <body class="px-4 py-8 md:px-12 md:py-16">
-  <!-- Decorative background elements -->
+  <!-- Decorative background elements with improved mobile constraints -->
   <div class="fixed top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0 opacity-50">
-    <div class="absolute top-20 right-10 w-64 h-64 bg-primary/5 rounded-full blur-3xl animate-pulse"></div>
-    <div class="absolute bottom-20 left-10 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-pulse" style="animation-delay: 1s;"></div>
+    <div class="absolute top-20 right-10 w-64 h-64 bg-primary/5 rounded-full blur-3xl animate-pulse" style="max-width: 50vw;"></div>
+    <div class="absolute bottom-20 left-10 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-pulse" style="max-width: 70vw; animation-delay: 1s;"></div>
   </div>
   
   <div class="max-w-6xl mx-auto animate-fade-in relative z-10">

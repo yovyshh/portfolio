@@ -36,15 +36,22 @@ function typeWriter() {
     setTimeout(typeWriter, typingSpeed);
 }
 
-// Reveal elements on scroll
+// Improved reveal elements on scroll with smoother animations
 function revealOnScroll() {
     const elements = document.querySelectorAll('.reveal-on-scroll');
     const windowHeight = window.innerHeight;
     
     elements.forEach(element => {
         const elementTop = element.getBoundingClientRect().top;
-        if (elementTop < windowHeight - 100) {
-            element.classList.add('animate-fade-in');
+        const elementBottom = element.getBoundingClientRect().bottom;
+        
+        // Only animate elements that are in the viewport
+        if (elementTop < windowHeight - 50 && elementBottom > 0) {
+            // Add a small delay based on element position for cascade effect
+            const delay = element.dataset.delay || 0;
+            setTimeout(() => {
+                element.classList.add('animate-fade-in');
+            }, delay);
         }
     });
 }
@@ -105,28 +112,42 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
     
-    // Update active nav link on scroll
-    window.addEventListener('scroll', function() {
+    // Throttle function to limit how often a function runs during scroll
+    function throttle(callback, delay = 100) {
+        let isThrottled = false;
+        return function() {
+            if (isThrottled) return;
+            isThrottled = true;
+            callback.apply(this, arguments);
+            setTimeout(() => { isThrottled = false; }, delay);
+        };
+    }
+    
+    // Update active nav link on scroll with improved performance
+    window.addEventListener('scroll', throttle(function() {
         const scrollPosition = window.scrollY;
         
-        document.querySelectorAll('section').forEach(section => {
-            const sectionTop = section.offsetTop - 100;
-            const sectionHeight = section.offsetHeight;
-            const sectionId = section.getAttribute('id');
+        // Use requestAnimationFrame for smoother visual updates
+        requestAnimationFrame(() => {
+            document.querySelectorAll('section').forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute('id');
+                
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        link.classList.remove('active-nav');
+                        if (link.getAttribute('href') === `#${sectionId}`) {
+                            link.classList.add('active-nav');
+                        }
+                    });
+                }
+            });
             
-            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                document.querySelectorAll('.nav-link').forEach(link => {
-                    link.classList.remove('active-nav');
-                    if (link.getAttribute('href') === `#${sectionId}`) {
-                        link.classList.add('active-nav');
-                    }
-                });
-            }
+            // Check for scroll animations
+            revealOnScroll();
         });
-        
-        // Check for scroll animations
-        revealOnScroll();
-    });
+    }, 50));
     
     // Initial check for elements in view
     revealOnScroll();
