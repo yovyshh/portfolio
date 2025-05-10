@@ -151,4 +151,119 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Initial check for elements in view
     revealOnScroll();
+
+    // Form validation and handling
+    const form = document.getElementById('contact-form');
+    const submitBtn = document.getElementById('submit-btn');
+    const submitSpinner = submitBtn.querySelector('.submit-spinner');
+    const formStatus = document.querySelector('.form-status');
+
+    // Input validation
+    const inputs = form.querySelectorAll('input, textarea');
+    inputs.forEach(input => {
+        const errorElement = document.getElementById(`${input.id}-error`);
+        
+        input.addEventListener('input', () => {
+            validateInput(input, errorElement);
+        });
+        
+        input.addEventListener('blur', () => {
+            validateInput(input, errorElement);
+        });
+    });
+
+    function validateInput(input, errorElement) {
+        if (input.validity.valid) {
+            errorElement.classList.add('hidden');
+            input.classList.remove('border-red-500');
+            return true;
+        } else {
+            errorElement.classList.remove('hidden');
+            input.classList.add('border-red-500');
+            return false;
+        }
+    }
+
+    // Form submission
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        // Validate all inputs
+        let isValid = true;
+        inputs.forEach(input => {
+            const errorElement = document.getElementById(`${input.id}-error`);
+            if (!validateInput(input, errorElement)) {
+                isValid = false;
+            }
+        });
+
+        if (!isValid) {
+            formStatus.textContent = 'Please fix the errors before submitting.';
+            formStatus.classList.remove('hidden');
+            return;
+        }
+
+        // Show loading state
+        submitBtn.disabled = true;
+        submitSpinner.classList.remove('hidden');
+        formStatus.classList.add('hidden');
+
+        try {
+            const formData = new FormData(form);
+            const response = await fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                mode: 'no-cors'
+            });
+
+            // Since we're using no-cors, we can't check the response status
+            formStatus.textContent = 'Message sent successfully!';
+            formStatus.classList.remove('hidden');
+            form.reset();
+        } catch (error) {
+            formStatus.textContent = 'Error sending message. Please try again.';
+            formStatus.classList.remove('hidden');
+        } finally {
+            submitBtn.disabled = false;
+            submitSpinner.classList.add('hidden');
+        }
+    });
+
+    // Typewriter effect
+    const typewriterElement = document.getElementById('typewriter');
+    if (typewriterElement) {
+        const text = typewriterElement.textContent;
+        typewriterElement.textContent = '';
+        let i = 0;
+        
+        function typeWriter() {
+            if (i < text.length) {
+                typewriterElement.textContent += text.charAt(i);
+                i++;
+                setTimeout(typeWriter, 100);
+            }
+        }
+        
+        // Start typewriter after a short delay
+        setTimeout(typeWriter, 1000);
+    }
+
+    // Scroll animations
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('in-view');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.scroll-fade').forEach(element => {
+        observer.observe(element);
+    });
 });
