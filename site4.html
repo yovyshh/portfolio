@@ -29,6 +29,18 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="icon" href="images/vysh.png" type="image/x-icon" sizes="32x32">
+    <style>
+        /* Scroll fade-in animation */
+        .scroll-fade {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .scroll-fade.in-view {
+            opacity: 1;
+            transform: none;
+        }
+    </style>
 </head>
 
 <body class="px-4 py-8 md:px-12 md:py-16">
@@ -38,15 +50,15 @@
         <div class="absolute bottom-20 left-10 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-pulse" style="max-width: 70vw; animation-delay: 1s;"></div>
     </div>
     
-    <div class="max-w-6xl mx-auto animate-fade-in relative z-10">
+    <div class="max-w-6xl mx-auto animate-fade-in relative z-10 scroll-fade">
         <!-- Back Button -->
-        <a href="index.html" class="back-btn inline-flex items-center text-muted mb-12 text-lg hover:text-primary transition group">
+        <a href="index.html" class="back-btn inline-flex items-center text-muted mb-12 text-lg hover:text-primary transition group scroll-fade">
             <i class="fas fa-arrow-left mr-2 group-hover:transform group-hover:-translate-x-1 transition-transform"></i>
             <span>Back to Portfolio</span>
         </a>
 
         <!-- Hero Section -->
-        <div class="mb-20 relative">
+        <div class="mb-20 relative scroll-fade">
             <div class="absolute -top-10 -left-10 w-20 h-20 border border-primary/20 rounded-full opacity-50"></div>
             <div class="absolute top-20 -right-5 w-10 h-10 border border-primary/20 rounded-full opacity-30"></div>
             
@@ -68,7 +80,7 @@
         </div>
 
         <!-- Design Process Section -->
-        <section class="mb-24">
+        <section class="mb-24 scroll-fade">
             <h2 class="text-3xl font-bold mb-12">My Design Process</h2>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
@@ -167,7 +179,7 @@
             <div>
                 <h3 class="text-xl font-semibold mb-6">UI Components</h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="ui-component p-6 rounded-lg">
+                    <div class="ui-component p-6 rounded-lg scroll-fade">
                         <h4 class="text-lg font-semibold mb-4">Buttons</h4>
                         <div class="space-y-4">
                             <button class="bg-primary text-white px-6 py-3 rounded-full font-medium hover:bg-primary/90 transition-all">Primary Button</button>
@@ -176,7 +188,7 @@
                         </div>
                     </div>
                     
-                    <div class="ui-component p-6 rounded-lg">
+                    <div class="ui-component p-6 rounded-lg scroll-fade">
                         <h4 class="text-lg font-semibold mb-4">Form Elements</h4>
                         <div class="space-y-4">
                             <div>
@@ -194,7 +206,7 @@
                         </div>
                     </div>
                     
-                    <div class="ui-component p-6 rounded-lg">
+                    <div class="ui-component p-6 rounded-lg scroll-fade">
                         <h4 class="text-lg font-semibold mb-4">Cards</h4>
                         <div class="bg-secondary rounded-lg overflow-hidden">
                             <div class="h-32 bg-accent flex items-center justify-center">
@@ -208,7 +220,7 @@
                         </div>
                     </div>
                     
-                    <div class="ui-component p-6 rounded-lg">
+                    <div class="ui-component p-6 rounded-lg scroll-fade">
                         <h4 class="text-lg font-semibold mb-4">Navigation</h4>
                         <div class="bg-dark/80 backdrop-blur-md p-4 rounded-lg flex justify-between items-center">
                             <div class="font-bold text-light">Logo</div>
@@ -320,5 +332,20 @@
     </div>
 
     <script src="js/main.js"></script>
+    <script>
+        // Scroll fade-in animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const scrollFades = document.querySelectorAll('.scroll-fade');
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('in-view');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.15 });
+            scrollFades.forEach(el => observer.observe(el));
+        });
+    </script>
 </body>
 </html>

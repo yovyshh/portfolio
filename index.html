@@ -20,11 +20,193 @@
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
-                    }
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'slide-up': 'slideUp 0.5s ease-out',
+                        'slide-down': 'slideDown 0.5s ease-out',
+                        'fade-in': 'fadeIn 0.5s ease-out',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(100%)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                        slideDown: {
+                            '0%': { transform: 'translateY(-100%)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        bounceIn: {
+                            '0%': {
+                                transform: 'scale(0.3) rotate(-10deg);',
+                                opacity: '0'
+                            },
+                            '50%': {
+                                transform: 'scale(1.2) rotate(5deg);',
+                                opacity: '0.8'
+                            },
+                            '70%': {
+                                transform: 'scale(0.9) rotate(-2deg);',
+                                opacity: '0.9'
+                            },
+                            '100%': {
+                                transform: 'scale(1) rotate(0);',
+                                opacity: '1'
+                            }
+                        },
+                        springIn: {
+                            '0%': {
+                                transform: 'scale(0.3) rotate(-10deg);',
+                                opacity: '0'
+                            },
+                            '40%': {
+                                transform: 'scale(1.2) rotate(5deg);',
+                                opacity: '0.8'
+                            },
+                            '60%': {
+                                transform: 'scale(0.9) rotate(-2deg);',
+                                opacity: '0.9'
+                            },
+                            '80%': {
+                                transform: 'scale(1.05) rotate(1deg);',
+                                opacity: '0.95'
+                            },
+                            '100%': {
+                                transform: 'scale(1) rotate(0);',
+                                opacity: '1'
+                            }
+                        }
+                    },
                 }
             }
         }
     </script>
+    <style>
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #F43F5E;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(244, 63, 94, 0.1), 0 10px 10px -5px rgba(244, 63, 94, 0.04);
+        }
+        .glow-btn {
+            position: relative;
+            overflow: hidden;
+        }
+        .glow-btn::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(244,63,94,0.3) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .glow-btn:hover::before {
+            opacity: 1;
+        }
+        .hero-text {
+            background: linear-gradient(45deg, #F43F5E, #FF6B6B);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: float 6s ease-in-out infinite;
+        }
+        .work-item img {
+            transition: transform 0.5s ease;
+        }
+        .work-item:hover img {
+            transform: scale(1.1);
+        }
+        .social-icon {
+            transition: transform 0.3s ease;
+        }
+        .social-icon:hover {
+            transform: translateY(-5px);
+        }
+        /* Scroll fade-in animation */
+        .scroll-fade {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .scroll-fade.in-view {
+            opacity: 1;
+            transform: none;
+        }
+        .smooth-transition {
+            transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+                        transform 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+                        left 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        @keyframes bounceIn {
+            0% {
+                transform: scale(0.3) rotate(-10deg);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.2) rotate(5deg);
+                opacity: 0.8;
+            }
+            70% {
+                transform: scale(0.9) rotate(-2deg);
+                opacity: 0.9;
+            }
+            100% {
+                transform: scale(1) rotate(0);
+                opacity: 1;
+            }
+        }
+
+        .name-animation {
+            display: inline-block;
+            cursor: pointer;
+            will-change: transform, left, top;
+            transform-origin: center center;
+        }
+
+        #hero-name {
+            transition: transform 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        .parallax-animation {
+            display: inline-block;
+            cursor: pointer;
+            will-change: transform;
+            transform-origin: center center;
+            transition: transform 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            z-index: 10;
+        }
+    </style>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="icon" href="images/vysh.png" type="image/x-icon" sizes="32x32">
@@ -32,14 +214,14 @@
 <body>
     
     <nav class="fixed w-full bg-dark/90 backdrop-blur-md z-50 border-b border-accent">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-          <!-- Logo -->
-          <a href="#" class="inline-block transition-transform hover:scale-110 duration-300 mr-auto">
-            <img src="images/vysh.png" alt="Blur Logo" class="w-24 h-24 object-cover rounded" style="max-height: 3rem; " />
+        <div class="container mx-auto px-6 py-4 flex items-center justify-between">
+          <!-- Logo: move to far left, remove mr-auto -->
+          <a href="#" class="inline-block transition-transform hover:scale-110 duration-300">
+            <img src="images/vysh.png" alt="Vyshh Logo" class="w-24 h-24 object-cover rounded" style="max-height: 3rem;" />
           </a>
       
           <!-- Desktop Nav -->
-          <div class="hidden md:flex space-x-8">
+          <div class="hidden md:flex space-x-8 ml-auto">
             <a href="#home" class="nav-link text-light hover:text-primary transition-colors active-nav">Home</a>
             <a href="#about" class="nav-link text-light hover:text-primary transition-colors">About</a>
             <a href="#work" class="nav-link text-light hover:text-primary transition-colors">Work</a>
@@ -65,7 +247,7 @@
       
 
 <!-- Hero Section -->
-<section id="home" class="min-h-screen flex items-center justify-center pt-20 relative overflow-hidden group bg-[#0e0e0e]">
+<section id="home" class="min-h-screen flex items-center justify-center pt-20 relative overflow-hidden group bg-[#0e0e0e] scroll-fade">
     <!-- Video Background with enhanced animation -->
     <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-0 w-[500px] sm:w-[700px] md:w-[900px] h-auto overflow-hidden transition-all duration-700 group-hover:scale-105 opacity-80 hover:opacity-100">
       <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#0e0e0e] z-10"></div>
@@ -77,14 +259,14 @@
   
     <!-- Text Content with enhanced animations -->
     <div class="container mx-auto px-1 text-center relative z-10 transform transition-all duration-1000 group-hover:translate-y-[-10px]">
-      <div class="mb-2 text-primary text-sm tracking-widest uppercase opacity-80 animate-pulse"></div>
-      <h1 class="text-2xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 hero-text overflow-visible mx-auto tracking-tight">
+      <!-- <div class="mb-2 text-primary text-sm tracking-widest uppercase opacity-80 animate-pulse">Welcome to my portfolio</div> -->
+      <h1 class="text-2xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 hero-text overflow-visible mx-auto tracking-tight animate-float">
         Vaishnav T Prakash
       </h1>
-      <h2 class="text-[10px] sm:text-xs md:text-sm lg:text-base text-gray-300 mb-8 flex items-center justify-center gap-2" id="typewriter">
+      <h2 class="text-[10px] sm:text-xs md:text-sm lg:text-base text-gray-300 mb-8 flex items-center justify-center gap-2 animate-fade-in" id="typewriter">
         Video Editor
       </h2>
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 animate-slide-up">
         <a href="#work" class="inline-block bg-primary text-white text-sm sm:text-base px-6 sm:px-8 py-2 sm:py-3 rounded-full font-medium glow-btn transition-all">
           View My Work
         </a>
@@ -101,7 +283,7 @@
   
 
     <!-- About Section with enhanced layout and animations -->
-    <section id="about" class="py-20 bg-secondary relative overflow-hidden">
+    <section id="about" class="py-20 bg-secondary relative overflow-hidden scroll-fade">
         <!-- Background decorative elements -->
         <div class="absolute -top-24 -right-24 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
         <div class="absolute -bottom-32 -left-32 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
@@ -158,22 +340,22 @@
     </section>
 
     <!-- Work Section -->
-    <section id="work" class="py-20 bg-dark">
+    <section id="work" class="py-20 bg-dark scroll-fade">
         <div class="container mx-auto px-6">
-            <h2 class="section-title text-3xl font-bold mb-12">Featured Work</h2>
+            <h2 class="section-title text-3xl font-bold mb-12 animate-slide-down scroll-fade">Featured Work</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Project 1 -->
-                <a href="site1.html" class="block h-full">
-                <div class="work-item overflow-hidden rounded-lg bg-secondary card-hover transition-all duration-300">
-                    <div class="overflow-hidden">
-                        <img src="images/iconlogo.png" alt="Project 1" class="w-full h-64 object-cover">
+                <!-- Project cards with enhanced animations -->
+                <a href="site1.html" class="block h-full animate-fade-in scroll-fade" style="animation-delay: 0.1s">
+                    <div class="work-item overflow-hidden rounded-lg bg-secondary card-hover transition-all duration-300">
+                        <div class="overflow-hidden">
+                            <img src="images/iconlogo.png" alt="Project 1" class="w-full h-64 object-cover">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-light mb-2">LOGO DESIGNS AND ANIMATIONS</h3>
+                            <p class="text-muted mb-4">Complete brand identity including logo, color palette, and brand guidelines</p>
+                            <span class="inline-block bg-accent text-primary px-3 py-1 rounded-full text-sm">Branding</span>
+                        </div>
                     </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-light mb-2">LOGO DESIGNS AND ANIMATIONS</h3>
-                        <p class="text-muted mb-4">Complete brand identity including logo, color palette, and brand guidelines</p>
-                        <span class="inline-block bg-accent text-primary px-3 py-1 rounded-full text-sm">Branding</span>
-                    </div>
-                </div>
                 </a>
                 
                 <!-- Project 2 
@@ -201,31 +383,31 @@
                 </div>
                 -->
                 <!-- Project 4 -->
-                <a href="site2.html" class="block h-full">
-                <div class="work-item overflow-hidden rounded-lg bg-secondary card-hover transition-all duration-300">
-                    <div class="overflow-hidden">
-                        <img src="images/motion graphics.png" alt="Project 4" class="w-full h-64 object-cover">
+                <a href="site2.html" class="block h-full animate-fade-in scroll-fade" style="animation-delay: 0.2s">
+                    <div class="work-item overflow-hidden rounded-lg bg-secondary card-hover transition-all duration-300">
+                        <div class="overflow-hidden">
+                            <img src="images/motion graphics.png" alt="Project 4" class="w-full h-64 object-cover">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-light mb-2">MOTION GRAPHICS AND VIDEO EDITING</h3>
+                            <p class="text-muted mb-4">Collection of animated social media posts and edits</p>
+                            <span class="inline-block bg-accent text-primary px-3 py-1 rounded-full text-sm">Editing</span>
+                        </div>
                     </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-light mb-2">MOTION GRAPHICS AND VIDEO EDITING</h3>
-                        <p class="text-muted mb-4">Collection of animated social media posts and edits</p>
-                        <span class="inline-block bg-accent text-primary px-3 py-1 rounded-full text-sm">Editing</span>
-                    </div>
-                </div>
                 </a>
                 
                 <!-- Project 5 -->
-                <a href="site3.html" class="block h-full">
-                <div class="work-item overflow-hidden rounded-lg bg-secondary card-hover transition-all duration-300">
-                    <div class="overflow-hidden">
-                        <img src="images/pic animation.png" alt="Project 5" class="w-full h-64 object-cover">
+                <a href="site3.html" class="block h-full animate-fade-in scroll-fade" style="animation-delay: 0.3s">
+                    <div class="work-item overflow-hidden rounded-lg bg-secondary card-hover transition-all duration-300">
+                        <div class="overflow-hidden">
+                            <img src="images/pic animation.png" alt="Project 5" class="w-full h-64 object-cover">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-light mb-2">GRAPHICS DESIGNS AND IMAGE ANIMATIONS</h3>
+                            <p class="text-muted mb-4">I specialize in transforming static images into captivating animations.</p>
+                            <span class="inline-block bg-accent text-primary px-3 py-1 rounded-full text-sm">Animation</span>
+                        </div>
                     </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-light mb-2">GRAPHICS DESIGNS AND IMAGE ANIMATIONS</h3>
-                        <p class="text-muted mb-4">I specialize in transforming static images into captivating animations.</p>
-                        <span class="inline-block bg-accent text-primary px-3 py-1 rounded-full text-sm">Animation</span>
-                    </div>
-                </div>
                 </a>
                 
                 <!-- Project 6 
@@ -245,12 +427,12 @@
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="py-20 bg-secondary">
+    <section id="services" class="py-20 bg-secondary scroll-fade">
         <div class="container mx-auto px-6">
-            <h2 class="section-title text-3xl font-bold mb-12">My Services</h2>
+            <h2 class="section-title text-3xl font-bold mb-12 scroll-fade">My Services</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <!-- Service 1 -->
-                <div class="bg-accent rounded-lg p-8 card-hover transition-all duration-300">
+                <div class="bg-accent rounded-lg p-8 card-hover transition-all duration-300 scroll-fade">
                     <div class="text-primary text-4xl mb-4">
                         <i class="fas fa-palette"></i>
                     </div>
@@ -259,7 +441,7 @@
                 </div>
                 
                 <!-- Service 2 -->
-                <div class="bg-accent rounded-lg p-8 card-hover transition-all duration-300">
+                <div class="bg-accent rounded-lg p-8 card-hover transition-all duration-300 scroll-fade">
                     <div class="text-primary text-4xl mb-4">
                         <i class="fas fa-photo-film"></i>
                     </div>
@@ -268,7 +450,7 @@
                 </div>
                 
                 <!-- Service 3 -->
-                <div class="bg-accent rounded-lg p-8 card-hover transition-all duration-300">
+                <div class="bg-accent rounded-lg p-8 card-hover transition-all duration-300 scroll-fade">
                     <div class="text-primary text-4xl mb-4">
                         <i class="fas fa-film"></i>
                     </div>
@@ -277,7 +459,7 @@
                 </div>
                 
                 <!-- Service 4 -->
-                <div class="bg-accent rounded-lg p-8 card-hover transition-all duration-300">
+                <div class="bg-accent rounded-lg p-8 card-hover transition-all duration-300 scroll-fade">
                     <div class="text-primary text-4xl mb-4">
                         <i class="fas fa-video"></i>
                     </div>
@@ -289,30 +471,30 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-dark">
+    <section id="contact" class="py-20 bg-dark scroll-fade">
         <div class="container mx-auto px-6">
-            <h2 class="section-title text-3xl font-bold mb-12">Get In Touch</h2>
+            <h2 class="section-title text-3xl font-bold mb-12 animate-slide-down scroll-fade">Get In Touch</h2>
             <div class="flex flex-col lg:flex-row gap-12">
-                <div class="lg:w-1/2">
+                <div class="lg:w-1/2 animate-slide-up scroll-fade">
                     <form action="https://docs.google.com/forms/d/e/1FAIpQLSfyGwWaFsS7tDSSB81o0z4JTZn_yManhU-zXSkYEwVVoyNEsw/formResponse" method="POST" target="_blank" class="space-y-6">
-                        <div>
+                        <div class="transform transition-all duration-300 hover:scale-[1.02]">
                             <label for="name" class="block text-light mb-2">Your Name</label>
-                            <input type="text" name="entry.2068496097" id="name" class="w-full px-4 py-3 rounded-lg text-light focus:border-primary transition-all" required>
+                            <input type="text" name="entry.2068496097" id="name" class="w-full px-4 py-3 rounded-lg bg-accent text-light focus:border-primary focus:ring-2 focus:ring-primary/50 transition-all" required>
                         </div>
-                        <div>
+                        <div class="transform transition-all duration-300 hover:scale-[1.02]">
                             <label for="email" class="block text-light mb-2">Your Email</label>
-                            <input type="email" name="entry.1905914208" id="email" class="w-full px-4 py-3 rounded-lg text-light focus:border-primary transition-all" required>
+                            <input type="email" name="entry.1905914208" id="email" class="w-full px-4 py-3 rounded-lg bg-accent text-light focus:border-primary focus:ring-2 focus:ring-primary/50 transition-all" required>
                         </div>
-                        <div>
+                        <div class="transform transition-all duration-300 hover:scale-[1.02]">
                             <label for="message" class="block text-light mb-2">Your Message</label>
-                            <textarea name="entry.42831845" id="message" rows="5" class="w-full px-4 py-3 rounded-lg text-light focus:border-primary transition-all" required></textarea>
+                            <textarea name="entry.42831845" id="message" rows="5" class="w-full px-4 py-3 rounded-lg bg-accent text-light focus:border-primary focus:ring-2 focus:ring-primary/50 transition-all" required></textarea>
                         </div>
                         <button type="submit" class="bg-primary text-white px-8 py-3 rounded-full font-medium glow-btn hover:bg-primary/90 transition-all">Send Message</button>
                     </form>
                     
                     
                 </div>
-                <div class="lg:w-1/2">
+                <div class="lg:w-1/2 animate-slide-up" style="animation-delay: 0.2s">
                     <div class="bg-secondary rounded-lg p-8 h-full">
                         <h3 class="text-xl font-bold text-light mb-6">Let's Work Together</h3>
                         <p class="text-light mb-8">Have a project in mind or want to discuss potential collaboration? Feel free to reach out through the form or directly via email or social media.</p>
@@ -370,6 +552,21 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script>
+    // Scroll fade-in animation
+    document.addEventListener('DOMContentLoaded', function() {
+        const scrollFades = document.querySelectorAll('.scroll-fade');
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+        scrollFades.forEach(el => observer.observe(el));
+    });
+    </script>
     
 
 </body>
