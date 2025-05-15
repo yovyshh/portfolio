@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+  <title>Vaishnav T. Prakash</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#F43F5E',
+            dark: '#0F0F0F',
+            secondary: '#1F1F1F',
+            accent: '#2D2D2D',
+            light: '#E5E5E5',
+            muted: '#A3A3A3',
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="icon" href="images/vysh.png" type="image/x-icon" sizes="32x32">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #0F0F0F;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    header, footer {
+      background-color: #fff;
+      padding: 20px 0;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3, h4, h5, h6 {
+      color: #E5E5E5;
+      margin-bottom: 20px;
+    }
+    p {
+      margin-bottom: 20px;
+      color: #E5E5E5;
+    }
+    a {
+      color: #F43F5E;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    /* Scroll fade-in animation */
+    .scroll-fade {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .scroll-fade.in-view {
+      opacity: 1;
+      transform: none;
+    }
+  </style>
+</head>
+
+<body class="px-4 py-8 md:px-12 md:py-16">
+  <!-- Decorative background elements with improved mobile constraints -->
+  <div class="fixed top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0 opacity-50">
+    <div class="absolute top-20 right-10 w-64 h-64 bg-primary/5 rounded-full blur-3xl animate-pulse" style="max-width: 50vw;"></div>
+    <div class="absolute bottom-20 left-10 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-pulse" style="max-width: 70vw; animation-delay: 1s;"></div>
+  </div>
+  
+  <div class="max-w-6xl mx-auto animate-fade-in relative z-10 scroll-fade">
+    <!-- Back Button -->
+    <a href="index.html" class="back-btn inline-flex items-center text-muted mb-12 text-lg hover:text-primary transition group scroll-fade">
+      <i class="fas fa-arrow-left mr-2 group-hover:transform group-hover:-translate-x-1 transition-transform"></i>
+      <span>Back to Portfolio</span>
+    </a>
+
+    <!-- Hero Section -->
+    <div class="mb-20 relative scroll-fade">
+      <div class="absolute -top-10 -left-10 w-20 h-20 border border-primary/20 rounded-full opacity-50"></div>
+      <div class="absolute top-20 -right-5 w-10 h-10 border border-primary/20 rounded-full opacity-30"></div>
+      
+      <h1 class="text-5xl md:text-6xl font-bold leading-tight tracking-tight relative inline-block logo-title">
+        Logo Designs
+        <span class="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-primary to-transparent opacity-50"></span>
+      </h1>
+      <p class="text-xl mt-6 max-w-3xl leading-relaxed hero-text">Creating unique and memorable logos that leave a lasting impression</p>
+    
+
+    <!-- Project Meta -->
+    <div class="flex flex-col md:flex-row items-start md:items-center justify-between mb-16 gap-4">
+      <div class="flex flex-wrap gap-2">
+        <span class="px-4 py-2 rounded-full bg-secondary text-sm text-primary border border-accent hover:shadow-lg hover:shadow-primary/20 transition">Branding</span>
+        <span class="px-4 py-2 rounded-full bg-secondary text-sm text-primary border border-accent hover:shadow-lg hover:shadow-primary/20 transition">Design</span>
+        <span class="px-4 py-2 rounded-full bg-secondary text-sm text-primary border border-accent hover:shadow-lg hover:shadow-primary/20 transition">Visual Identity</span>
+      </div>
+      <div class="flex items-center space-x-6 text-muted text-sm">
+        <span class="flex items-center">
+          <i class="fas fa-calendar-alt mr-2"></i> 2024
+        </span>
+        <span class="flex items-center">
+          <i class="fas fa-clock mr-2"></i> 1-2 weeks
+        </span>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+      <!-- Left Column -->
+      <div class="lg:col-span-2 space-y-20">
+        <!-- Overview -->
+        <div class="glassmorphism p-8 rounded-xl border border-accent/30">
+          <h2 class="text-3xl font-bold mb-8 section-title">Overview</h2>
+          <div class="space-y-6 text-muted leading-relaxed">
+            <p>
+              With over five years of experience in logo design and animation, I specialize in crafting visually striking identities that balance futuristic aesthetics with an inviting, approachable feel.
+            </p>
+            <p>
+              My work ensures accessibility while maintaining a forward-thinking edge, creating brands that resonate across diverse audiences and applications.
+            </p>
+          </div>
+        </div>
+
+        <!-- Problem & Solution -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="card p-8 rounded-xl border border-accent/20 hover:shadow-lg hover:shadow-primary/10">
+            <div class="text-primary mb-6 text-2xl"><i class="fas fa-question-circle"></i></div>
+            <h3 class="font-bold mb-4 text-xl">The Challenge</h3>
+            <p class="text-muted leading-relaxed">
+              Designing an editing logo required striking the perfect balance between clarity and creativity. It needed to stand out while maintaining a sleek, professional look.
+            </p>
+          </div>
+          <div class="card p-8 rounded-xl border border-accent/20 hover:shadow-lg hover:shadow-primary/10">
+            <div class="text-primary mb-6 text-2xl"><i class="fas fa-lightbulb"></i></div>
+            <h3 class="font-bold mb-4 text-xl">The Solution</h3>
+            <p class="text-muted leading-relaxed">
+              I created a modular identity system with a dynamic logo that adapts to different contexts, a vibrant yet sophisticated color palette, and clean typography.
+            </p>
+          </div>
+        </div>
+
+        <!-- Gallery with enhanced interactive elements -->
+        <div class="glassmorphism p-8 rounded-xl border border-accent/30 relative overflow-hidden group scroll-fade">
+          <!-- Decorative elements -->
+          <div class="absolute -top-20 -right-20 w-40 h-40 bg-primary/10 rounded-full blur-xl opacity-0 group-hover:opacity-70 transition-all duration-1000"></div>
+          
+          <h2 class="text-3xl font-bold mb-10 section-title relative z-10 logo-title">Blur Ltd</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="gfx-item rounded-xl overflow-hidden flex items-center justify-center p-8 bg-secondary/80 backdrop-blur-sm relative group/item">
+              <!-- Spotlight effect on hover -->
+              <div class="absolute inset-0 opacity-0 group-hover/item:opacity-100 transition-opacity duration-700 bg-gradient-to-br from-primary/5 to-transparent"></div>
+              
+              <img src="images/blurpng.png" alt="Logo Design" class="w-full max-w-xs logo-preview relative z-10">
+              
+              <!-- Logo info tooltip -->
+              <div class="absolute bottom-0 left-0 right-0 bg-dark/80 backdrop-blur-md p-4 transform translate-y-full group-hover/item:translate-y-0 transition-transform duration-500 ease-out">
+                <h4 class="text-sm font-semibold text-primary">About This Logo</h4>
+                <p class="text-xs text-light/80 mt-1">Minimalist design with a focus on typography and subtle motion</p>
+              </div>
+            </div>
+            
+            <div class="gfx-item rounded-xl overflow-hidden p-8 bg-secondary/80 backdrop-blur-sm relative group/colors">
+              <h3 class="font-bold mb-6 text-lg inline-block relative">
+                Color Palette
+                <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover/colors:w-full transition-all duration-500"></span>
+              </h3>
+              
+              <div class="grid grid-cols-4 gap-4">
+                <div class="color-swatch h-20 rounded-lg bg-primary flex flex-col items-center justify-center text-xs font-medium text-white shadow-md shadow-primary/30 relative overflow-hidden">
+                  <span class="z-10">Primary</span>
+                  <span class="text-[10px] mt-1 opacity-70 z-10">#F43F5E</span>
+                  <div class="absolute inset-0 bg-white/10 opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                
+                <div class="color-swatch h-20 rounded-lg bg-dark flex flex-col items-center justify-center text-xs font-medium text-white shadow-md shadow-dark/30 relative overflow-hidden">
+                  <span class="z-10">Dark</span>
+                  <span class="text-[10px] mt-1 opacity-70 z-10">#0F0F0F</span>
+                  <div class="absolute inset-0 bg-white/10 opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                
+                <div class="color-swatch h-20 rounded-lg bg-secondary flex flex-col items-center justify-center text-xs font-medium text-light shadow-md shadow-secondary/30 relative overflow-hidden">
+                  <span class="z-10">Secondary</span>
+                  <span class="text-[10px] mt-1 opacity-70 z-10">#1F1F1F</span>
+                  <div class="absolute inset-0 bg-white/10 opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                
+                <div class="color-swatch h-20 rounded-lg bg-accent flex flex-col items-center justify-center text-xs font-medium text-light shadow-md shadow-accent/30 relative overflow-hidden">
+                  <span class="z-10">Accent</span>
+                  <span class="text-[10px] mt-1 opacity-70 z-10">#2D2D2D</span>
+                  <div class="absolute inset-0 bg-white/10 opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="gfx-item rounded-xl overflow-hidden col-span-1 md:col-span-2 relative group/video">
+              <!-- Video overlay with play icon -->
+              <div class="absolute inset-0 bg-gradient-to-t from-dark/70 to-transparent z-10 opacity-100 group-hover/video:opacity-0 transition-opacity duration-500 pointer-events-none flex items-center justify-center">
+                <div class="w-16 h-16 rounded-full bg-primary/80 flex items-center justify-center text-white pointer-events-none">
+                  <i class="fas fa-play"></i>
+                </div>
+              </div>
+              
+              <video class="w-full h-auto rounded-xl shadow-lg transition-all duration-500 group-hover/video:brightness-110" poster="images/blurpng.png" preload="metadata" autoplay loop muted playsinline controls>
+                <source src="videos/BLUR.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              
+              <!-- Caption -->
+              <div class="absolute bottom-0 left-0 right-0 p-4 bg-dark/70 backdrop-blur-sm transform translate-y-full group-hover/video:translate-y-0 transition-transform duration-500 ease-out">
+                <p class="text-sm text-light">Logo animation showcasing versatility across different contexts</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+         <!-- Gallery -->
+         <div class="glassmorphism p-8 rounded-xl border border-accent/30">
+          <h2 class="text-3xl font-bold mb-10 section-title logo-title">Dope</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="gfx-item rounded-xl overflow-hidden flex items-center justify-center p-8 bg-secondary">
+            <img src="images/dope.png" alt="Logo Design" class="w-full max-w-xs logo-preview">
+          </div>
+          <div class="gfx-item rounded-xl overflow-hidden p-8 bg-secondary">
+            <h3 class="font-bold mb-4 text-lg">Color Palette</h3>
+            <div class="grid grid-cols-4 gap-4">
+            <div class="color-swatch h-16 rounded-lg bg-gray-500 flex items-center justify-center text-xs font-medium text-white shadow-md shadow-gray-500/30">Grey</div>
+            <div class="color-swatch h-16 rounded-lg bg-black flex items-center justify-center text-xs font-medium text-white shadow-md shadow-black/30">Black</div>
+            <div class="color-swatch h-16 rounded-lg bg-white flex items-center justify-center text-xs font-medium text-black shadow-md shadow-gray-300/30">White</div>
+            </div>
+          </div>
+          <div class="gfx-item rounded-xl overflow-hidden col-span-1 md:col-span-2 relative group/video">
+            <!-- Video overlay with play icon -->
+            <div class="absolute inset-0 bg-gradient-to-t from-dark/70 to-transparent z-10 opacity-100 group-hover/video:opacity-0 transition-opacity duration-500 pointer-events-none flex items-center justify-center">
+              <div class="w-16 h-16 rounded-full bg-primary/80 flex items-center justify-center text-white pointer-events-none">
+                <i class="fas fa-play"></i>
+              </div>
+            </div>
+            
+            <video class="w-full h-auto rounded-xl shadow-lg transition-all duration-500 group-hover/video:brightness-110" poster="images/dope.png" preload="metadata" autoplay loop muted playsinline controls>
+              <source src="videos/dopecompile.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            
+            <!-- Caption -->
+            <div class="absolute bottom-0 left-0 right-0 p-4 bg-dark/70 backdrop-blur-sm transform translate-y-full group-hover/video:translate-y-0 transition-transform duration-500 ease-out">
+              <p class="text-sm text-light">Logo animation showcasing versatility across different contexts</p>
+            </div>
+          </div>
+          </div>
+        </div>
+          <!-- Gallery -->
+          <div class="glassmorphism p-8 rounded-xl border border-accent/30">
+            <h2 class="text-3xl font-bold mb-10 section-title logo-title">Vyshh</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="gfx-item rounded-xl overflow-hidden flex items-center justify-center p-8 bg-secondary">
+              <img src="images/vysh.png" alt="Logo Design" class="w-full max-w-xs logo-preview">
+            </div>
+            <div class="gfx-item rounded-xl overflow-hidden p-8 bg-secondary">
+              <h3 class="font-bold mb-4 text-lg">Color Palette</h3>
+              <div class="grid grid-cols-4 gap-4">
+              <div class="color-swatch h-16 rounded-lg bg-gray-500 flex items-center justify-center text-xs font-medium text-white shadow-md shadow-gray-500/30">Grey</div>
+              <div class="color-swatch h-16 rounded-lg bg-black flex items-center justify-center text-xs font-medium text-white shadow-md shadow-black/30">Black</div>
+              <div class="color-swatch h-16 rounded-lg bg-white flex items-center justify-center text-xs font-medium text-black shadow-md shadow-gray-300/30">White</div>
+              </div>
+            </div>
+            
+            <div class="gfx-item rounded-xl overflow-hidden col-span-1 md:col-span-2 relative group/video">
+              <!-- Video overlay with play icon -->
+              <div class="absolute inset-0 bg-gradient-to-t from-dark/70 to-transparent z-10 opacity-100 group-hover/video:opacity-0 transition-opacity duration-500 pointer-events-none flex items-center justify-center">
+                <div class="w-16 h-16 rounded-full bg-primary/80 flex items-center justify-center text-white pointer-events-none">
+                  <i class="fas fa-play"></i>
+                </div>
+              </div>
+              
+              <video class="w-full h-auto rounded-xl shadow-lg transition-all duration-500 group-hover/video:brightness-110" poster="images/vysh.png" preload="metadata" autoplay loop muted playsinline controls>
+              <source src="videos/compilation.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+              </video>
+              
+              <!-- Caption -->
+              <div class="absolute bottom-0 left-0 right-0 p-4 bg-dark/70 backdrop-blur-sm transform translate-y-full group-hover/video:translate-y-0 transition-transform duration-500 ease-out">
+                <p class="text-sm text-light">Logo animation showcasing versatility across different contexts</p>
+              </div>
+            </div>
+            
+            </div>
+          </div>
+
+        <!-- Process -->
+        <div class="glassmorphism p-8 rounded-xl border border-accent/30">
+          <h2 class="text-3xl font-bold mb-10 section-title">Design Process</h2>
+          <div class="space-y-8">
+            <div class="process-step p-4 rounded-lg hover:bg-secondary/30 transition">
+              <h3 class="font-bold mb-3 text-xl">Discovery & Research</h3>
+              <p class="text-muted leading-relaxed">
+                Conducted market analysis, competitor research, and stakeholder interviews to understand positioning and audience needs.
+              </p>
+            </div>
+            <div class="process-step p-4 rounded-lg hover:bg-secondary/30 transition">
+              <h3 class="font-bold mb-3 text-xl">Concept Development</h3>
+              <p class="text-muted leading-relaxed">
+                Created mood boards and explored multiple visual directions before narrowing down to three distinct concepts.
+              </p>
+            </div>
+            <div class="process-step p-4 rounded-lg hover:bg-secondary/30 transition">
+              <h3 class="font-bold mb-3 text-xl">Refinement</h3>
+              <p class="text-muted leading-relaxed">
+                Iterated on the selected concept based on feedback, refining the logo, color system, and typography.
+              </p>
+            </div>
+            <div class="process-step p-4 rounded-lg hover:bg-secondary/30 transition">
+              <h3 class="font-bold mb-3 text-xl">Implementation</h3>
+              <p class="text-muted leading-relaxed">
+                Developed comprehensive brand guidelines and created templates for various applications.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column -->
+      <div class="space-y-8">
+        <!-- Tools -->
+        <div class="card p-8 rounded-xl border border-accent/20 glassmorphism">
+          <h3 class="font-bold text-xl mb-6">Tools Used</h3>
+          <div class="grid grid-cols-2 gap-6">
+            <div class="flex flex-col items-center cursor-pointer transition-all duration-300 hover:scale-105">
+              <div class="tool-icon w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center text-primary text-2xl mb-3">
+                <i class="fas fa-pen-fancy"></i>
+              </div>
+              <span class="text-sm font-medium">Illustrator</span>
+            </div>
+            <div class="flex flex-col items-center cursor-pointer transition-all duration-300 hover:scale-105">
+              <div class="tool-icon w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center text-primary text-2xl mb-3">
+                <i class="fas fa-paint-brush"></i>
+              </div>
+              <span class="text-sm font-medium">Photoshop</span>
+            </div>
+            <div class="flex flex-col items-center cursor-pointer transition-all duration-300 hover:scale-105">
+              <div class="tool-icon w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center text-primary text-2xl mb-3">
+                <i class="fas fa-video"></i>
+              </div>
+              <span class="text-sm font-medium">After Effects</span>
+            </div>
+            <div class="flex flex-col items-center cursor-pointer transition-all duration-300 hover:scale-105">
+              <div class="tool-icon w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center text-primary text-2xl mb-3">
+                <i class="fas fa-cube"></i>
+              </div>
+              <span class="text-sm font-medium">Blender</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact CTA -->
+        <div class="card p-8 rounded-xl glassmorphism border border-accent/20 text-center">
+          <h3 class="text-2xl font-bold mb-4">Let's create something together</h3>
+          <p class="text-muted mb-6 text-sm">Need a unique identity for your brand or product?</p>
+          <a href="mailto:vyisafk@gmail.com" class="inline-block bg-primary hover:bg-primary/90 text-white font-medium py-3 px-8 rounded-full btn-primary transition-all text-sm">
+            Contact Me <i class="fas fa-envelope ml-2"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer CTA -->
+    <div class="text-center mt-32 mb-12">
+      <h3 class="text-3xl font-bold mb-6">Ready to bring motion to your project?</h3>
+      <p class="text-muted mb-8 max-w-2xl mx-auto text-lg">From concept to final render, I can help you create compelling motion content that elevates your brand and engages your audience.</p>
+      <div class="flex flex-col items-center">
+        <a href="mailto:vyisafk@gmail.com" class="inline-block bg-primary hover:bg-primary/90 text-white font-medium py-4 px-10 rounded-full btn-primary transition-all mb-3 text-lg">
+          Email me <i class="fas fa-arrow-right ml-2"></i>
+        </a>
+        <p class="text-sm text-muted">
+          <a href="mailto:vyisafk@gmail.com" class="text-primary hover:underline transition">vyisafk@gmail.com</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Simple animation for project images
+    document.querySelectorAll('.gfx-item').forEach(item => {
+      item.addEventListener('mouseenter', () => {
+        if (item.querySelector('img')) {
+          item.querySelector('img').style.transform = 'scale(1.05)';
+        }
+      });
+      item.addEventListener('mouseleave', () => {
+        if (item.querySelector('img')) {
+          item.querySelector('img').style.transform = 'scale(1)';
+        }
+      });
+    });
+
+    // Scroll fade-in animation
+    document.addEventListener('DOMContentLoaded', function() {
+      const scrollFades = document.querySelectorAll('.scroll-fade');
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.05 });
+      scrollFades.forEach(el => observer.observe(el));
+    });
+  </script>
+</body>
+</html>

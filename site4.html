@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>UI/UX Design Portfolio | Vaishnav T. Prakash</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#F43F5E',
+                        dark: '#0F0F0F',
+                        secondary: '#1F1F1F',
+                        accent: '#2D2D2D',
+                        light: '#E5E5E5',
+                        muted: '#A3A3A3',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="icon" href="images/vysh.png" type="image/x-icon" sizes="32x32">
+    <style>
+        /* Scroll fade-in animation */
+        .scroll-fade {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .scroll-fade.in-view {
+            opacity: 1;
+            transform: none;
+        }
+    </style>
+</head>
+
+<body class="px-4 py-8 md:px-12 md:py-16">
+    <!-- Decorative background elements with improved mobile constraints -->
+    <div class="fixed top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0 opacity-50">
+        <div class="absolute top-20 right-10 w-64 h-64 bg-primary/5 rounded-full blur-3xl animate-pulse" style="max-width: 50vw;"></div>
+        <div class="absolute bottom-20 left-10 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-pulse" style="max-width: 70vw; animation-delay: 1s;"></div>
+    </div>
+    
+    <div class="max-w-6xl mx-auto animate-fade-in relative z-10 scroll-fade">
+        <!-- Back Button -->
+        <a href="index.html" class="back-btn inline-flex items-center text-muted mb-12 text-lg hover:text-primary transition group scroll-fade">
+            <i class="fas fa-arrow-left mr-2 group-hover:transform group-hover:-translate-x-1 transition-transform"></i>
+            <span>Back to Portfolio</span>
+        </a>
+
+        <!-- Hero Section -->
+        <div class="mb-20 relative scroll-fade">
+            <div class="absolute -top-10 -left-10 w-20 h-20 border border-primary/20 rounded-full opacity-50"></div>
+            <div class="absolute top-20 -right-5 w-10 h-10 border border-primary/20 rounded-full opacity-30"></div>
+            
+            <h1 class="text-5xl md:text-6xl font-bold leading-tight tracking-tight relative inline-block">
+                UI/UX Design
+                <span class="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-primary to-transparent opacity-50"></span>
+            </h1>
+            <p class="text-xl text-muted mt-6 max-w-3xl leading-relaxed">Creating intuitive, user-centered digital experiences that balance aesthetics with functionality</p>
+        </div>
+
+        <!-- Project Meta -->
+        <div class="flex flex-col md:flex-row items-start md:items-center justify-between mb-16 gap-4">
+            <div class="flex flex-wrap gap-2">
+                <span class="px-4 py-2 rounded-full bg-secondary text-sm text-primary border border-accent hover:shadow-lg hover:shadow-primary/20 transition">UI Design</span>
+                <span class="px-4 py-2 rounded-full bg-secondary text-sm text-primary border border-accent hover:shadow-lg hover:shadow-primary/20 transition">UX Research</span>
+                <span class="px-4 py-2 rounded-full bg-secondary text-sm text-primary border border-accent hover:shadow-lg hover:shadow-primary/20 transition">Wireframing</span>
+                <span class="px-4 py-2 rounded-full bg-secondary text-sm text-primary border border-accent hover:shadow-lg hover:shadow-primary/20 transition">Prototyping</span>
+            </div>
+        </div>
+
+        <!-- Design Process Section -->
+        <section class="mb-24 scroll-fade">
+            <h2 class="text-3xl font-bold mb-12">My Design Process</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
+                <div class="process-step p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center text-primary text-xl font-bold mr-4">1</div>
+                        <h3 class="text-2xl font-bold">Research & Discovery</h3>
+                    </div>
+                    <p class="text-muted ml-16">I begin by understanding the problem space through user research, stakeholder interviews, and competitive analysis. This phase establishes a solid foundation for the design process.</p>
+                </div>
+                
+                <div class="process-step p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center text-primary text-xl font-bold mr-4">2</div>
+                        <h3 class="text-2xl font-bold">Ideation & Wireframing</h3>
+                    </div>
+                    <p class="text-muted ml-16">Translating research insights into low-fidelity wireframes and user flows. This stage focuses on information architecture and core functionality before visual design.</p>
+                </div>
+                
+                <div class="process-step p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center text-primary text-xl font-bold mr-4">3</div>
+                        <h3 class="text-2xl font-bold">UI Design & Prototyping</h3>
+                    </div>
+                    <p class="text-muted ml-16">Creating high-fidelity designs with attention to visual hierarchy, typography, color theory, and accessibility. Interactive prototypes bring the design to life.</p>
+                </div>
+                
+                <div class="process-step p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center text-primary text-xl font-bold mr-4">4</div>
+                        <h3 class="text-2xl font-bold">Testing & Iteration</h3>
+                    </div>
+                    <p class="text-muted ml-16">Conducting usability testing to validate design decisions and identify areas for improvement. Iterative refinement based on user feedback ensures the final product meets user needs.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Design System Showcase -->
+        <section class="mb-24 wireframe-grid p-8 rounded-xl">
+            <h2 class="text-3xl font-bold mb-12">Design System Elements</h2>
+            
+            <div class="mb-16">
+                <h3 class="text-xl font-semibold mb-6">Color Palette</h3>
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
+                    <div class="color-swatch h-24 rounded-lg bg-primary flex items-end p-2">
+                        <span class="text-xs font-mono text-white">#F43F5E</span>
+                    </div>
+                    <div class="color-swatch h-24 rounded-lg bg-dark flex items-end p-2">
+                        <span class="text-xs font-mono text-white">#0F0F0F</span>
+                    </div>
+                    <div class="color-swatch h-24 rounded-lg bg-secondary flex items-end p-2">
+                        <span class="text-xs font-mono text-white">#1F1F1F</span>
+                    </div>
+                    <div class="color-swatch h-24 rounded-lg bg-accent flex items-end p-2">
+                        <span class="text-xs font-mono text-white">#2D2D2D</span>
+                    </div>
+                    <div class="color-swatch h-24 rounded-lg bg-light flex items-end p-2">
+                        <span class="text-xs font-mono text-dark">#E5E5E5</span>
+                    </div>
+                    <div class="color-swatch h-24 rounded-lg bg-muted flex items-end p-2">
+                        <span class="text-xs font-mono text-dark">#A3A3A3</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mb-16">
+                <h3 class="text-xl font-semibold mb-6">Typography</h3>
+                <div class="space-y-6">
+                    <div>
+                        <h1 class="text-4xl font-bold mb-2">Heading 1</h1>
+                        <p class="text-xs font-mono text-muted">Inter / Bold / 36px</p>
+                    </div>
+                    <div>
+                        <h2 class="text-3xl font-bold mb-2">Heading 2</h2>
+                        <p class="text-xs font-mono text-muted">Inter / Bold / 30px</p>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold mb-2">Heading 3</h3>
+                        <p class="text-xs font-mono text-muted">Inter / Bold / 24px</p>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-semibold mb-2">Heading 4</h4>
+                        <p class="text-xs font-mono text-muted">Inter / Semibold / 20px</p>
+                    </div>
+                    <div>
+                        <p class="text-base mb-2">Body Text - This is the standard paragraph style used throughout the interface for readability and clarity.</p>
+                        <p class="text-xs font-mono text-muted">Inter / Regular / 16px</p>
+                    </div>
+                    <div>
+                        <p class="text-sm mb-2">Small Text - Used for captions, labels, and secondary information.</p>
+                        <p class="text-xs font-mono text-muted">Inter / Regular / 14px</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div>
+                <h3 class="text-xl font-semibold mb-6">UI Components</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="ui-component p-6 rounded-lg scroll-fade">
+                        <h4 class="text-lg font-semibold mb-4">Buttons</h4>
+                        <div class="space-y-4">
+                            <button class="bg-primary text-white px-6 py-3 rounded-full font-medium hover:bg-primary/90 transition-all">Primary Button</button>
+                            <button class="block bg-transparent border border-primary text-primary px-6 py-3 rounded-full font-medium hover:bg-primary/10 transition-all mt-3">Secondary Button</button>
+                            <button class="block bg-accent text-light px-6 py-3 rounded-full font-medium hover:bg-accent/80 transition-all mt-3">Tertiary Button</button>
+                        </div>
+                    </div>
+                    
+                    <div class="ui-component p-6 rounded-lg scroll-fade">
+                        <h4 class="text-lg font-semibold mb-4">Form Elements</h4>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-light mb-2">Text Input</label>
+                                <input type="text" class="w-full px-4 py-3 rounded-lg bg-accent border border-accent focus:border-primary transition-all" placeholder="Enter text here">
+                            </div>
+                            <div>
+                                <label class="block text-light mb-2">Dropdown</label>
+                                <select class="w-full px-4 py-3 rounded-lg bg-accent border border-accent focus:border-primary transition-all">
+                                    <option>Option 1</option>
+                                    <option>Option 2</option>
+                                    <option>Option 3</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="ui-component p-6 rounded-lg scroll-fade">
+                        <h4 class="text-lg font-semibold mb-4">Cards</h4>
+                        <div class="bg-secondary rounded-lg overflow-hidden">
+                            <div class="h-32 bg-accent flex items-center justify-center">
+                                <span class="text-muted">Image Placeholder</span>
+                            </div>
+                            <div class="p-4">
+                                <h5 class="font-semibold mb-2">Card Title</h5>
+                                <p class="text-sm text-muted mb-3">This is a sample card component with image, title, and description.</p>
+                                <button class="text-primary text-sm font-medium hover:underline">Learn More</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="ui-component p-6 rounded-lg scroll-fade">
+                        <h4 class="text-lg font-semibold mb-4">Navigation</h4>
+                        <div class="bg-dark/80 backdrop-blur-md p-4 rounded-lg flex justify-between items-center">
+                            <div class="font-bold text-light">Logo</div>
+                            <div class="flex space-x-4">
+                                <a href="#" class="text-light hover:text-primary transition-colors">Home</a>
+                                <a href="#" class="text-light hover:text-primary transition-colors">About</a>
+                                <a href="#" class="text-primary">Services</a>
+                                <a href="#" class="text-light hover:text-primary transition-colors">Contact</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Case Studies Section -->
+        <section class="mb-24">
+            <h2 class="text-3xl font-bold mb-12">UI/UX Case Studies</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Case Study 1 -->
+                <div class="bg-secondary rounded-lg overflow-hidden">
+                    <div class="h-64 bg-accent flex items-center justify-center p-8">
+                        <img src="images/blurpng.png" alt="Mobile App UI Design" class="h-full object-contain">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-light mb-2">Mobile App Redesign</h3>
+                        <p class="text-muted mb-4">A comprehensive redesign of a mobile application focusing on improving user engagement and simplifying the navigation structure.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 rounded-full bg-accent text-xs text-primary">Mobile UI</span>
+                            <span class="px-3 py-1 rounded-full bg-accent text-xs text-primary">User Testing</span>
+                            <span class="px-3 py-1 rounded-full bg-accent text-xs text-primary">Prototyping</span>
+                        </div>
+                        <button class="text-primary font-medium hover:underline flex items-center">
+                            View Case Study
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Case Study 2 -->
+                <div class="bg-secondary rounded-lg overflow-hidden">
+                    <div class="h-64 bg-accent flex items-center justify-center p-8">
+                        <img src="images/vysh.png" alt="Website Redesign" class="h-full object-contain">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-light mb-2">E-commerce Website Redesign</h3>
+                        <p class="text-muted mb-4">Reimagining the online shopping experience with a focus on product discovery, streamlined checkout, and responsive design.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 rounded-full bg-accent text-xs text-primary">Web Design</span>
+                            <span class="px-3 py-1 rounded-full bg-accent text-xs text-primary">E-commerce</span>
+                            <span class="px-3 py-1 rounded-full bg-accent text-xs text-primary">Responsive</span>
+                        </div>
+                        <button class="text-primary font-medium hover:underline flex items-center">
+                            View Case Study
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tools & Skills Section -->
+        <section class="mb-24">
+            <h2 class="text-3xl font-bold mb-12">Tools & Skills</h2>
+            
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+                <div class="bg-secondary rounded-lg p-6 text-center">
+                    <i class="fab fa-figma text-4xl text-primary mb-4"></i>
+                    <h3 class="font-semibold">Figma</h3>
+                </div>
+                <div class="bg-secondary rounded-lg p-6 text-center">
+                    <i class="fab fa-adobe text-4xl text-primary mb-4"></i>
+                    <h3 class="font-semibold">Adobe XD</h3>
+                </div>
+                <div class="bg-secondary rounded-lg p-6 text-center">
+                    <i class="fab fa-sketch text-4xl text-primary mb-4"></i>
+                    <h3 class="font-semibold">Sketch</h3>
+                </div>
+                <div class="bg-secondary rounded-lg p-6 text-center">
+                    <i class="fas fa-pencil-ruler text-4xl text-primary mb-4"></i>
+                    <h3 class="font-semibold">Wireframing</h3>
+                </div>
+                <div class="bg-secondary rounded-lg p-6 text-center">
+                    <i class="fas fa-sitemap text-4xl text-primary mb-4"></i>
+                    <h3 class="font-semibold">User Flows</h3>
+                </div>
+                <div class="bg-secondary rounded-lg p-6 text-center">
+                    <i class="fas fa-users text-4xl text-primary mb-4"></i>
+                    <h3 class="font-semibold">User Research</h3>
+                </div>
+                <div class="bg-secondary rounded-lg p-6 text-center">
+                    <i class="fas fa-universal-access text-4xl text-primary mb-4"></i>
+                    <h3 class="font-semibold">Accessibility</h3>
+                </div>
+                <div class="bg-secondary rounded-lg p-6 text-center">
+                    <i class="fas fa-mobile-alt text-4xl text-primary mb-4"></i>
+                    <h3 class="font-semibold">Responsive Design</h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact CTA -->
+        <section class="bg-secondary rounded-xl p-8 md:p-12 text-center">
+            <h2 class="text-3xl font-bold mb-6">Let's Create Amazing User Experiences Together</h2>
+            <p class="text-muted max-w-2xl mx-auto mb-8">Looking for a UI/UX designer who combines creativity with user-centered thinking? I'd love to discuss how I can help bring your digital product to life.</p>
+            <a href="index.html#contact" class="inline-block bg-primary text-white px-8 py-3 rounded-full font-medium hover:bg-primary/90 transition-all">Get in Touch</a>
+        </section>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Scroll fade-in animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const scrollFades = document.querySelectorAll('.scroll-fade');
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('in-view');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.15 });
+            scrollFades.forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+</html>

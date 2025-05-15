@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #0F0F0F;
+    color: #E5E5E5;
+    scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+}
+
+/* Animations */
+@keyframes navScroll {
+    from { background-color: rgba(15, 15, 15, 0.9); }
+    to { background-color: rgba(15, 15, 15, 0.7); }
+}
+
+.nav-scroll {
+    animation: navScroll 0.5s ease-out forwards;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+/* Wireframe effect */
+.wireframe-grid {
+    background-image: linear-gradient(rgba(244, 63, 94, 0.05) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(244, 63, 94, 0.05) 1px, transparent 1px);
+    background-size: 20px 20px;
+}
+
+/* Design system elements */
+.color-swatch {
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.color-swatch:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive styles for mobile devices */
+@media (max-width: 768px) {
+    nav {
+    transition: top 0.3s ease-in-out;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+    width: 100%;
+}
+    #mobile-menu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out;
+    background-color: rgba(15, 15, 15, 0.95);
+    color: #E5E5E5;
+    padding: 0;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 49;
+}
+
+    #mobile-menu.open {
+    max-height: 300px; /* Adjust this value based on the content size */
+}
+    body {
+        padding: 16px;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .text-lg {
+        font-size: 1rem;
+    }
+}
+
+/* UI component showcase */
+.ui-component {
+    border: 1px solid rgba(244, 63, 94, 0.2);
+    transition: all 0.3s ease;
+}
+
+.ui-component:hover {
+    border-color: rgba(244, 63, 94, 0.5);
+    box-shadow: 0 5px 15px rgba(244, 63, 94, 0.1);
+}
+
+/* Process steps */
+.process-step {
+    position: relative;
+}
+
+.process-step::after {
+    content: '';
+    position: absolute;
+    top: 2.5rem;
+    left: 50%;
+    width: 1px;
+    height: calc(100% - 2.5rem);
+    background: linear-gradient(to bottom, rgba(244, 63, 94, 0.5), transparent);
+    z-index: 0;
+}
+
+.process-step:last-child::after {
+    display: none;
+}
+
+/* Mobile responsiveness improvements */
+img, video {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Fix for horizontal scroll issues */
+.overflow-x-auto {
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+}
+
+/* Ensure content doesn't overflow on small screens */
+@media (max-width: 640px) {
+    .container {
+        width: 100%;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
+    h1 {
+        font-size: 2.5rem !important;
+    }
+    
+    h2 {
+        font-size: 1.75rem !important;
+    }
+    
+    .grid {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+}
+
+/* Hero text animation */
+.hero-text {
+    background: linear-gradient(90deg, #E5E5E5, #F43F5E);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: gradient-shift 8s ease infinite;
+}
+
+@keyframes gradient-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Logo title animation */
+.logo-title {
+    background: linear-gradient(90deg, #E5E5E5, #F43F5E);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: titleAnimation 3s ease-in-out infinite alternate;
+    position: relative;
+}
+
+@keyframes titleAnimation {
+    0% {
+        transform: translateY(0);
+        text-shadow: 0 0 10px rgba(244, 63, 94, 0.3);
+    }
+    50% {
+        transform: translateY(-5px);
+        text-shadow: 0 0 20px rgba(244, 63, 94, 0.5);
+    }
+    100% {
+        transform: translateY(0);
+        text-shadow: 0 0 10px rgba(244, 63, 94, 0.3);
+    }
+}
+
+/* Float animation */
+@keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    25% { transform: translateY(-10px) rotate(1deg); }
+    50% { transform: translateY(0) rotate(0deg); }
+    75% { transform: translateY(-5px) rotate(-1deg); }
+}
+
+.logo-preview {
+    animation: float 6s ease-in-out infinite;
+    filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.3));
+    transition: filter 0.5s ease;
+}
+
+.logo-preview:hover {
+    filter: drop-shadow(0 15px 20px rgba(244, 63, 94, 0.4));
+}

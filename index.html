@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Portfolio of Vaishnav T. Prakash - Creative Graphic Designer & Video Editor specializing in brand identity, motion graphics, and social media content.">
+    <meta name="keywords" content="graphic design, video editing, motion graphics, brand identity, social media content, UI/UX design">
+    <meta name="author" content="Vaishnav T. Prakash">
+    <meta property="og:title" content="Vaishnav T. Prakash | Graphic Designer & Video Editor">
+    <meta property="og:description" content="Creative portfolio showcasing graphic design, video editing, and motion graphics work.">
+    <meta property="og:image" content="images/vysh.png">
+    <meta property="og:url" content="https://your-portfolio-url.com">
+    <title>Vaishnav T. Prakash | Graphic Designer & Video Editor</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="icon" href="images/vysh.png" type="image/x-icon" sizes="32x32">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#F43F5E',
+                        dark: '#0F0F0F',
+                        secondary: '#1F1F1F',
+                        accent: '#2D2D2D',
+                        light: '#E5E5E5',
+                        muted: '#A3A3A3',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'slide-up': 'slideUp 0.5s ease-out',
+                        'slide-down': 'slideDown 0.5s ease-out',
+                        'fade-in': 'fadeIn 0.5s ease-out',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(100%)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                        slideDown: {
+                            '0%': { transform: 'translateY(-100%)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        bounceIn: {
+                            '0%': {
+                                transform: 'scale(0.3) rotate(-10deg);',
+                                opacity: '0'
+                            },
+                            '50%': {
+                                transform: 'scale(1.2) rotate(5deg);',
+                                opacity: '0.8'
+                            },
+                            '70%': {
+                                transform: 'scale(0.9) rotate(-2deg);',
+                                opacity: '0.9'
+                            },
+                            '100%': {
+                                transform: 'scale(1) rotate(0);',
+                                opacity: '1'
+                            }
+                        },
+                        springIn: {
+                            '0%': {
+                                transform: 'scale(0.3) rotate(-10deg);',
+                                opacity: '0'
+                            },
+                            '40%': {
+                                transform: 'scale(1.2) rotate(5deg);',
+                                opacity: '0.8'
+                            },
+                            '60%': {
+                                transform: 'scale(0.9) rotate(-2deg);',
+                                opacity: '0.9'
+                            },
+                            '80%': {
+                                transform: 'scale(1.05) rotate(1deg);',
+                                opacity: '0.95'
+                            },
+                            '100%': {
+                                transform: 'scale(1) rotate(0);',
+                                opacity: '1'
+                            }
+                        }
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #F43F5E;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(244, 63, 94, 0.1), 0 10px 10px -5px rgba(244, 63, 94, 0.04);
+        }
+        .glow-btn {
+            position: relative;
+            overflow: hidden;
+        }
+        .glow-btn::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(244,63,94,0.3) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .glow-btn:hover::before {
+            opacity: 1;
+        }
+        .hero-text {
+            background: linear-gradient(45deg, #F43F5E, #FF6B6B);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: float 6s ease-in-out infinite;
+        }
+        .work-item img {
+            transition: transform 0.5s ease;
+        }
+        .work-item:hover img {
+            transform: scale(1.1);
+        }
+        .social-icon {
+            transition: transform 0.3s ease;
+        }
+        .social-icon:hover {
+            transform: translateY(-5px);
+        }
+        /* Scroll fade-in animation */
+        .scroll-fade {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .scroll-fade.in-view {
+            opacity: 1;
+            transform: none;
+        }
+        .smooth-transition {
+            transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+                        transform 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+                        left 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        @keyframes bounceIn {
+            0% {
+                transform: scale(0.3) rotate(-10deg);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.2) rotate(5deg);
+                opacity: 0.8;
+            }
+            70% {
+                transform: scale(0.9) rotate(-2deg);
+                opacity: 0.9;
+            }
+            100% {
+                transform: scale(1) rotate(0);
+                opacity: 1;
+            }
+        }
+
+        .name-animation {
+            display: inline-block;
+            cursor: pointer;
+            will-change: transform, left, top;
+            transform-origin: center center;
+        }
+
+        #hero-name {
+            transition: transform 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        .parallax-animation {
+            display: inline-block;
+            cursor: pointer;
+            will-change: transform;
+            transform-origin: center center;
+            transition: transform 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            z-index: 10;
+        }
+
+        #video-container {
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+        
+        #name-video {
+            transition: transform 0.1s ease-out;
+            will-change: transform;
+        }
+
+        /* Page fade-in animation */
+        body {
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        body.loaded {
+            opacity: 1;
+        }
+
+        /* Preloader */
+        .preload {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #0e0e0e;
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.5s ease-out;
+        }
+
+        .preload.fade-out {
+            opacity: 0;
+        }
+        
+        #mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out;
+            background-color: rgba(15, 15, 15, 0.9);
+            color: #E5E5E5;
+            padding: 0 1.5rem;
+            position: absolute;
+            top: 100%;
+            width: 100%;
+        }
+    </style>
+    <!-- Instagram In-App Browser Detection -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (navigator.userAgent.includes("Instagram")) {
+                // Create a stylish banner that matches the site design
+                const banner = document.createElement('div');
+                banner.id = 'instagram-banner';
+                banner.innerHTML = `
+                    <div class="flex items-center justify-between w-full px-4 py-3">
+                        <div class="flex items-center">
+                            <i class="fas fa-exclamation-circle text-xl mr-3"></i>
+                            <div>
+                                <p class="font-medium">For the best experience</p>
+                                <p class="text-sm opacity-80">Open this site in Chrome or Safari</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <button id="close-banner" class="bg-white bg-opacity-20 hover:bg-opacity-30 rounded-full p-1 ml-2">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+                
+                // Style the banner with CSS that matches your site
+                banner.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    background-color: #F43F5E;
+                    color: white;
+                    z-index: 9999;
+                    font-family: 'Inter', sans-serif;
+                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                `;
+                
+                // Add the banner to the body as the first child
+                document.body.insertBefore(banner, document.body.firstChild);
+                
+                // Adjust content padding to account for the banner
+                document.body.style.paddingTop = 
+                    (parseInt(getComputedStyle(banner).height) + 10) + 'px';
+                
+                // Add close functionality
+                document.getElementById('close-banner').addEventListener('click', function() {
+                    document.getElementById('instagram-banner').style.display = 'none';
+                    document.body.style.paddingTop = '0';
+                });
+            }
+        });
+    </script>
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preload" id="preloader">
+        <div class="w-16 h-16 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
+    </div>
+
+    <nav class="fixed w-full bg-dark/90 backdrop-blur-md z-50 border-b border-accent">
+        <div class="container mx-auto px-4 py-3 flex items-center justify-between w-full">
+          <!-- Logo: move to far left, remove mr-auto -->
+          <a href="#" class="inline-block transition-transform hover:scale-110 duration-300">
+            <img src="images/vysh.png" alt="Vyshh Logo" class="w-12 h-12 object-cover rounded" />
+          </a>
+
+          <!-- Desktop Nav -->
+          <div class="hidden md:flex space-x-8 ml-auto">
+            <a href="#home" class="nav-link text-light hover:text-primary transition-colors active-nav">Home</a>
+            <a href="#about" class="nav-link text-light hover:text-primary transition-colors">About</a>
+            <a href="#work" class="nav-link text-light hover:text-primary transition-colors">Work</a>
+            <a href="#services" class="nav-link text-light hover:text-primary transition-colors">Services</a>
+            <a href="#contact" class="nav-link text-light hover:text-primary transition-colors">Contact</a>
+          </div>
+
+          <!-- Mobile Menu Toggle slightly to the left -->
+          <button id="menu-toggle" class="md:hidden text-light z-50 ml-auto mr-8" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu">
+            <i class="fas fa-bars text-2xl"></i>
+          </button>
+          <script>
+              document.getElementById('menu-toggle').addEventListener('click', function() {
+                  const mobileMenu = document.getElementById('mobile-menu');
+                  mobileMenu.classList.toggle('open');
+              });
+          </script>
+        </div>
+
+        <!-- Mobile Menu (Collapsed by Default) -->
+        <div id="mobile-menu" class="md:hidden max-h-0 overflow-hidden transition-all duration-300 ease-in-out bg-dark text-light" role="navigation" aria-label="Mobile menu">
+          <div class="container mx-auto px-4">
+            <a href="#home" class="block py-3 border-b border-accent hover:text-primary transition-colors text-center" aria-current="page">Home</a>
+            <a href="#about" class="block py-3 border-b border-accent hover:text-primary transition-colors text-center">About</a>
+            <a href="#work" class="block py-3 border-b border-accent hover:text-primary transition-colors text-center">Work</a>
+            <a href="#services" class="block py-3 border-b border-accent hover:text-primary transition-colors text-center">Services</a>
+            <a href="#contact" class="block py-3 hover:text-primary transition-colors text-center">Contact</a>
+          </div>
+        </div>
+      </nav>
+
+<!-- Hero Section -->
+<section id="home" class="min-h-screen flex items-center justify-center pt-20 relative overflow-hidden group bg-[#0e0e0e]">
+    <!-- Video Background -->
+    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-0 w-[500px] sm:w-[700px] md:w-[900px] h-auto overflow-hidden transition-all duration-700 group-hover:scale-105">
+      <video class="w-full h-full object-contain" autoplay muted loop playsinline>
+        <source src="videos/small.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  
+    <!-- Text Content -->
+    <div class="container mx-auto px-6 text-center relative z-10">
+      <div class="w-full max-w-3xl mx-auto mb-4 overflow-visible" id="video-container">
+        <video class="w-full h-auto cursor-pointer" id="name-video" muted playsinline >
+          <source src="videos/name.webm" type="video/webm">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+ <div id="fallback-image" style="display: none;">
+ <img src="images/vaishnav.png" alt="Animation Fallback" class="w-full h-auto">
+</div>
+      <h2 class="text-sm sm:text-lg md:text-xl lg:text-2xl text-gray-300 mb-6" id="typewriter"></h2>
+
+      <a href="#work" class="inline-block bg-primary text-white text-sm sm:text-base px-6 sm:px-8 py-2 sm:py-3 rounded-full font-medium glow-btn transition-all">
+        View My Work
+      </a>
+    </div>
+</section>
+  
+
+
+  
+  
+
+    <!-- About Section with enhanced layout and animations -->
+    <section id="about" class="py-20 bg-secondary relative overflow-hidden scroll-fade">
+        <!-- Background decorative elements -->
+        <div class="absolute -top-24 -right-24 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
+        <div class="absolute -bottom-32 -left-32 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <h2 class="section-title text-3xl font-bold mb-12">About Me</h2>
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/3 flex justify-center">
+                    <div class="relative">
+                        <div class="absolute inset-0 bg-gradient-to-br from-primary/30 to-primary/10 rounded-full blur-xl opacity-70"></div>
+                        <div class="w-64 h-64 rounded-full overflow-hidden border-4 border-primary relative z-10 shadow-xl">
+                            <video autoplay muted loop playsinline class="w-full h-full object-cover scale-105">
+                                <source src="videos/animation pfp.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-2/3">
+                    <div class="space-y-6">
+                        <div class="inline-block px-4 py-1 bg-primary/10 rounded-full text-primary text-sm font-medium mb-2">Creative Visual Artist</div>
+                        <p class="text-lg text-light mb-6 leading-relaxed">
+                            I'm a creative graphic designer and video editor from Kerala, India with 5+ years of experience crafting visually striking content that tells powerful stories. Specializing in brand identity, social media visuals, and motion graphics, I bring strategy and artistry together to help brands stand out and connect with their audience.                        
+                        </p>
+                        <p class="text-lg text-light mb-6 leading-relaxed">
+                            Additionally, I'm a Computer Science student with expertise in UI/UX design and front-end coding, blending technical skills with creativity to deliver seamless user experiences.
+                        </p>
+                        
+                        <div class="pt-4">
+                            <h3 class="text-xl font-semibold text-light mb-4">My Specialties</h3>
+                            <div class="flex flex-wrap gap-8">
+                                <a href="site1.html" class="tool-icon text-4xl text-light hover:text-primary transition-all flex flex-col items-center">
+                                    <i class="fas fa-pencil-ruler mb-2"></i>
+                                    <span class="text-sm">Logo Design</span>
+                                </a>
+                                <a href="site2.html" class="tool-icon text-4xl text-light hover:text-primary transition-all flex flex-col items-center">
+                                    <i class="fas fa-video mb-2"></i>
+                                    <span class="text-sm">Video Editing</span>
+                                </a>
+                                <a href="site3.html" class="tool-icon text-4xl text-light hover:text-primary transition-all flex flex-col items-center">
+                                    <i class="fas fa-film mb-2"></i>
+                                    <span class="text-sm">Animation</span>
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work Section -->
+    <section id="work" class="py-20 bg-dark scroll-fade">
+        <div class="container mx-auto px-6">
+            <h2 class="section-title text-3xl font-bold mb-12 animate-slide-down scroll-fade">Featured Work</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project cards with enhanced animations -->
+                <a href="site1.html" class="block h-full animate-fade-in scroll-fade hover:no-underline" style="animation-delay: 0.1s">
+                    <div class="work-item overflow-hidden rounded-lg bg-secondary card-hover transition-all duration-300 h-full flex flex-col">
+                        <div class="overflow-hidden flex-shrink-0">
+                            <img src="images/iconlogo.png" alt="Project 1" class="w-full h-64 object-cover">
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-xl font-bold text-light mb-2">LOGO DESIGNS AND ANIMATIONS</h3>
+                            <p class="text-muted mb-4 flex-grow">Complete brand identity including logo, color palette, and brand guidelines</p>
+                            <div class="mt-auto">
+                                <span class="inline-block bg-accent text-primary px-3 py-1 rounded-full text-sm">Branding</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                
+                <!-- Project 2 
+                <div class="work-item overflow-hidden rounded-lg bg-secondary card-hover transition-all duration-300">
+                    <div class="overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1171&q=80" alt="Project 2" class="w-full h-64 object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-light mb-2">Social Media Campaign</h3>
+                        <p class="text-muted mb-4">30-day content calendar with graphics and videos for Instagram</p>
+                        <span class="inline-block bg-accent text-primary px-3 py-1 rounded-full text-sm">Social Media</span>
+                    </div>
+                </div>
+                -->
+                <!-- Project 3 
+                <div class="work-item overflow-hidden rounded-lg bg-secondary card-hover transition-all duration-300">
+                    <div class="overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1579389083078-4e7018379f7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Project 3" class="w-full h-64 object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-light mb-2">Product Launch Video</h3>
+                        <p class="text-muted mb-4">2-minute promotional video for tech product launch</p>
+                -- Project 4 -->
+                <a href="site2.html" class="block h-full animate-fade-in scroll-fade hover:no-underline" style="animation-delay: 0.2s">
+                    <div class="work-item overflow-hidden rounded-lg bg-secondary card-hover transition-all duration-300 h-full flex flex-col">
+                        <div class="overflow-hidden flex-shrink-0">
+                            <img src="images/motion graphics.png" alt="Project 2" class="w-full h-64 object-cover">
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-xl font-bold text-light mb-2">VIDEO EDITING</h3>
+                            <p class="text-muted mb-4 flex-grow">Professional video editing for social media, commercials, and corporate content.</p>
+                            <div class="mt-auto">
+                                <span class="inline-block bg-accent text-primary px-3 py-1 rounded-full text-sm">Video</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                
+                <!-- Project 5 -->
+                <a href="site3.html" class="block h-full animate-fade-in scroll-fade hover:no-underline" style="animation-delay: 0.5s">
+                    <div class="work-item overflow-hidden rounded-lg bg-secondary card-hover transition-all duration-300 h-full flex flex-col">
+                        <div class="overflow-hidden flex-shrink-0">
+                            <img src="images/pic animation.png" alt="Project 5" class="w-full h-64 object-cover">
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-xl font-bold text-light mb-2">ANIMATIONS</h3>
+                            <p class="text-muted mb-4 flex-grow">I specialize in transforming static images into captivating animations.</p>
+                            <div class="mt-auto">
+                                <span class="inline-block bg-accent text-primary px-3 py-1 rounded-full text-sm">Animation</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                
+                <!-- Project 6 
+                <div class="work-item overflow-hidden rounded-lg bg-secondary card-hover transition-all duration-300">
+                    <div class="overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1467232004584-a241de8b9a40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80" alt="Project 6" class="w-full h-64 object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-light mb-2">Website Redesign</h3>
+                        <p class="text-muted mb-4">UI/UX redesign for e-commerce platform</p>
+                        <span class="inline-block bg-accent text-primary px-3 py-1 rounded-full text-sm">Web Design</span>
+                    </div>
+                </div>
+                -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-secondary scroll-fade">
+        <div class="container mx-auto px-6">
+            <h2 class="section-title text-3xl font-bold mb-12 scroll-fade">My Services</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-accent rounded-lg p-8 card-hover transition-all duration-300 scroll-fade">
+                    <div class="text-primary text-4xl mb-4">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-light mb-3">Brand Design</h3>
+                    <p class="text-muted">Creating cohesive visual identities that communicate your brand's essence and values.</p>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="bg-accent rounded-lg p-8 card-hover transition-all duration-300 scroll-fade">
+                    <div class="text-primary text-4xl mb-4">
+                        <i class="fas fa-photo-film"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-light mb-3">Social Media Edits</h3>
+                    <p class="text-muted">Eye-catching content designed to maximize engagement and follower growth.</p>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="bg-accent rounded-lg p-8 card-hover transition-all duration-300 scroll-fade">
+                    <div class="text-primary text-4xl mb-4">
+                        <i class="fas fa-film"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-light mb-3">Motion Graphics</h3>
+                    <p class="text-muted">Dynamic animations that bring your message to life with movement and impact.</p>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="bg-accent rounded-lg p-8 card-hover transition-all duration-300 scroll-fade">
+                    <div class="text-primary text-4xl mb-4">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-light mb-3">Video Reels</h3>
+                    <p class="text-muted">Short-form video content optimized for platforms like Instagram and TikTok.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-dark scroll-fade">
+        <div class="container mx-auto px-6">
+            <h2 class="section-title text-3xl font-bold mb-12 animate-slide-down scroll-fade">Get In Touch</h2>
+            <div class="flex flex-col lg:flex-row gap-12">
+                <div class="lg:w-1/2 animate-slide-up scroll-fade">
+                    <form action="https://docs.google.com/forms/d/e/1FAIpQLSfyGwWaFsS7tDSSB81o0z4JTZn_yManhU-zXSkYEwVVoyNEsw/formResponse" method="POST" target="_blank" class="space-y-6" id="contact-form" novalidate>
+                        <div class="transform transition-all duration-300 hover:scale-[1.02]">
+                            <label for="name" class="block text-light mb-2">Your Name</label>
+                            <input type="text" name="entry.2068496097" id="name" class="w-full px-4 py-3 rounded-lg bg-accent text-light focus:border-primary focus:ring-2 focus:ring-primary/50 transition-all" required minlength="2" pattern="[A-Za-z\s]+" aria-describedby="name-error">
+                            <div id="name-error" class="text-primary text-sm mt-1 hidden">Please enter a valid name (letters and spaces only)</div>
+                        </div>
+                        <div class="transform transition-all duration-300 hover:scale-[1.02]">
+                            <label for="email" class="block text-light mb-2">Your Email</label>
+                            <input type="email" name="entry.1905914208" id="email" class="w-full px-4 py-3 rounded-lg bg-accent text-light focus:border-primary focus:ring-2 focus:ring-primary/50 transition-all" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" aria-describedby="email-error">
+                            <div id="email-error" class="text-primary text-sm mt-1 hidden">Please enter a valid email address</div>
+                        </div>
+                        <div class="transform transition-all duration-300 hover:scale-[1.02]">
+                            <label for="message" class="block text-light mb-2">Your Message</label>
+                            <textarea name="entry.42831845" id="message" rows="5" class="w-full px-4 py-3 rounded-lg bg-accent text-light focus:border-primary focus:ring-2 focus:ring-primary/50 transition-all" required minlength="10" aria-describedby="message-error"></textarea>
+                            <div id="message-error" class="text-primary text-sm mt-1 hidden">Please enter a message (minimum 10 characters)</div>
+                        </div>
+                        <div class="form-status hidden text-primary text-sm mt-2"></div>
+                        <button type="submit" class="bg-primary text-white px-8 py-3 rounded-full font-medium glow-btn hover:bg-primary/90 transition-all flex items-center justify-center gap-2" id="submit-btn">
+                            <span>Send Message</span>
+                            <div class="submit-spinner hidden animate-spin rounded-full h-5 w-5 border-2 border-white border-t-transparent"></div>
+                        </button>
+                    </form>
+                    
+                    
+                </div>
+                <div class="lg:w-1/2 animate-slide-up" style="animation-delay: 0.2s">
+                    <div class="bg-secondary rounded-lg p-8 h-full">
+                        <h3 class="text-xl font-bold text-light mb-6">Let's Work Together</h3>
+                        <p class="text-light mb-8">Have a project in mind or want to discuss potential collaboration? Feel free to reach out through the form or directly via email or social media.</p>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-center">
+                                <div class="text-primary mr-4">
+                                    <i class="fas fa-envelope text-xl"></i>
+                                </div>
+                                <a href="mailto:vyisafk@gmail.com" class="text-light hover:text-primary transition-colors">vyisafk@gmail.com</a>
+                            </div>
+                            
+                            <div class="flex items-center">
+                                <div class="text-primary mr-4">
+                                    <i class="fas fa-phone text-xl"></i>
+                                </div>
+                                <a href="tel:+1234567890" class="text-light hover:text-primary transition-colors">9446050251</a>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-12">
+                            <h4 class="text-lg font-medium text-light mb-4">Follow Me</h4>
+                            <div class="flex space-x-6">
+                                <!-- <a href="#" class="social-icon text-light hover:text-primary text-xl">
+                                    <i class="fab fa-dribbble"></i>
+                                </a> -->
+                                <a href="https://www.instagram.com/unable2accesss/" class="social-icon text-light hover:text-primary text-xl">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="https://www.linkedin.com/in/vaishnav-t-prakash-092a07352/" class="social-icon text-light hover:text-primary text-xl">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="https://www.behance.net/vaishnavprakash2" class="social-icon text-light hover:text-primary text-xl">
+                                    <i class="fab fa-behance"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 bg-secondary">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <p class="text-muted mb-4 md:mb-0">© 2025  All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-muted hover:text-primary transition-colors">Privacy Policy</a>
+                    <a href="#" class="text-muted hover:text-primary transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const preloader = document.getElementById('preloader');
+
+        
+        // Wait for all content to load
+        window.addEventListener('load', function() {
+            // Remove preloader
+            preloader.classList.add('fade-out');
+            setTimeout(() => {
+                preloader.style.display = 'none';
+            }, 500);
+
+            // Fade in the page
+            document.body.classList.add('loaded');
+        });
+
+        setTimeout(() => {
+            // Video interaction
+            const video = document.getElementById('name-video');
+            const container = document.getElementById('video-container');
+            let isHovering = false;
+            let isPlaying = false;
+
+            // Function to handle video playback
+            function handleVideoPlay() {
+                if (!isPlaying) {
+                    video.currentTime = 0;
+                    video.play();
+                    isPlaying = true;
+                }
+            }
+
+            // Function to handle video pause
+            function handleVideoPause() {
+                if (isPlaying) {
+                    // Remove the timeupdate listener that was limiting to 10 seconds
+                    video.removeEventListener('timeupdate', checkVideoTime);
+                    // Add new timeupdate listener for end of video
+                    video.addEventListener('timeupdate', function checkEnd() {
+                        if (video.currentTime >= video.duration - 0.1) {
+                            video.pause();
+                            video.currentTime = 0;
+                            isPlaying = false;
+                            video.removeEventListener('timeupdate', checkEnd);
+                            // Restore the original timeupdate listener
+                            video.addEventListener('timeupdate', checkVideoTime);
+                        }
+                    });
+                }
+            }
+
+            // Function to check video time during hover
+            function checkVideoTime() {
+                if (video.currentTime >= 10) {
+                    video.pause();
+                    isPlaying = false;
+                } else if (video.currentTime >= 7) {
+                    video.currentTime = 6;
+                }
+            }
+
+            // Add initial timeupdate listener
+            video.addEventListener('timeupdate', checkVideoTime);
+
+            // Mouse move handler
+            function handleMouseMove(e) {
+                if (!isHovering) return;
+
+                const rect = container.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+
+                // Calculate the movement range (adjust these values as needed)
+                const moveX = (x - rect.width / 2) / 20;
+                const moveY = (y - rect.height / 2) / 20;
+
+                // Apply the transform
+                video.style.transform = `translate(${moveX}px, ${moveY}px)`;
+            }
+
+            // Event listeners
+            container.addEventListener('mouseenter', () => {
+                isHovering = true;
+                handleVideoPlay();
+            });
+
+            container.addEventListener('mouseleave', () => {
+                isHovering = false;
+                handleVideoPause();
+                video.style.transform = 'translate(0, 0)';
+            });
+
+            container.addEventListener('mousemove', handleMouseMove);
+
+            // Typewriter effect
+            const roles = [
+                "Video Editor",
+                "Graphic Designer",
+                "UI/UX Designer",
+                "Front-End Developer"
+            ];
+            const typingText = document.querySelector('#typewriter');
+            let roleIndex = 0;
+            let charIndex = 0;
+            let isDeleting = false;
+            let typingDelay = 100;
+            let erasingDelay = 50;
+            let newRoleDelay = 1500;
+
+            function typeEffect() {
+                if (!typingText) return;
+
+                const currentRole = roles[roleIndex];
+
+                if (!isDeleting && charIndex <= currentRole.length) {
+                    typingText.textContent = currentRole.substring(0, charIndex);
+                    charIndex++;
+                    
+                    if (charIndex > currentRole.length) {
+                        isDeleting = true;
+                        setTimeout(typeEffect, newRoleDelay);
+                        return;
+                    }
+                    setTimeout(typeEffect, typingDelay);
+                } else if (isDeleting && charIndex >= 0) {
+                    typingText.textContent = currentRole.substring(0, charIndex);
+                    charIndex--;
+                    
+                    if (charIndex < 0) {
+                        isDeleting = false;
+                        roleIndex = (roleIndex + 1) % roles.length;
+                        setTimeout(typeEffect, 800);
+                        return;
+                    }
+                    setTimeout(typeEffect, erasingDelay);
+                }
+            }
+
+            // Initialize typewriter with empty text
+            if (typingText) {
+                typingText.textContent = '';
+                // Start typewriter effect after a short delay
+                setTimeout(typeEffect, 500);
+            }
+
+            // Add scroll fade animation
+            const scrollFadeElements = document.querySelectorAll('.scroll-fade');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('in-view');
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '50px'
+            });
+
+            scrollFadeElements.forEach(element => {
+                observer.observe(element);
+            });
+        }, 100);
+    });
+    </script>
+    
+<script>
+    function isInstagramInAppBrowser() {
+        const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+        return userAgent.indexOf('Instagram') > -1;
+    }
+
+    if (isInstagramInAppBrowser()) {
+        document.body.classList.add('instagram-browser');
+    }
+</script>
+
+<script>
+    let lastScrollTop = 0;
+    window.addEventListener('scroll', function() {
+        const nav = document.querySelector('nav');
+        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        if (scrollTop > lastScrollTop) {
+            // Scroll down
+            nav.style.top = '-100px';
+        } else {
+            // Scroll up
+            nav.style.top = '0';
+        }
+        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+    });
+</script>
+</body>
+</html>
