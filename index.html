@@ -128,6 +128,66 @@
             position: relative;
             overflow: hidden;
         }
+        /* New creative button styles */
+        .creative-btn {
+            position: relative;
+            overflow: hidden;
+            transform-style: preserve-3d;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .creative-btn:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 10px 20px -5px rgba(244, 63, 94, 0.4);
+        }
+        
+        .btn-bg {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, #F43F5E, #ff6b6b);
+            z-index: 0;
+            border-radius: 9999px;
+            transition: all 0.4s ease-out;
+        }
+        
+        .creative-btn:before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            background: linear-gradient(90deg, #F43F5E, #ff9f7f, #F43F5E);
+            background-size: 200% 100%;
+            border-radius: 9999px;
+            z-index: -1;
+            animation: borderAnimation 2s linear infinite;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .creative-btn:hover:before {
+            opacity: 1;
+        }
+        
+        @keyframes borderAnimation {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 200% 50%; }
+        }
+        
+        .creative-btn:after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            left: -100%;
+            top: 0;
+            transform: skewX(-15deg);
+            transition: all 0.5s ease;
+        }
+        
+        .creative-btn:hover:after {
+            left: 100%;
+        }
+
         .glow-btn::before {
             content: '';
             position: absolute;
@@ -199,7 +259,16 @@
             display: inline-block;
             cursor: pointer;
             will-change: transform, left, top;
-            transform-origin: center center;
+        }
+        
+        .name-video-animation {
+            animation: float-y 4s ease-in-out infinite;
+            will-change: transform;
+        }
+        
+        @keyframes float-y {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
         }
 
         #hero-name {
@@ -381,7 +450,7 @@
     <!-- Text Content -->
     <div class="container mx-auto px-6 text-center relative z-10">
       <div class="w-full max-w-3xl mx-auto mb-4 overflow-visible" id="video-container">
-        <video class="w-full h-auto cursor-pointer" id="name-video" muted playsinline >
+        <video class="w-full h-auto cursor-pointer name-video-animation" id="name-video" muted playsinline >
           <source src="videos/name.webm" type="video/webm">
           Your browser does not support the video tag.
         </video>
@@ -391,8 +460,12 @@
 </div>
       <h2 class="text-sm sm:text-lg md:text-xl lg:text-2xl text-gray-300 mb-6" id="typewriter"></h2>
 
-      <a href="#work" class="inline-block bg-primary text-white text-sm sm:text-base px-6 sm:px-8 py-2 sm:py-3 rounded-full font-medium glow-btn transition-all">
-        View My Work
+      <a href="#work" class="creative-btn inline-flex items-center justify-center gap-2 group text-white text-sm sm:text-base px-8 sm:px-10 py-3 sm:py-4 rounded-full font-medium transition-all">
+        <span class="relative z-10">View My Work</span>
+        <span class="relative z-10 transition-transform duration-300 group-hover:translate-x-1">
+          <i class="fas fa-arrow-right"></i>
+        </span>
+        <div class="btn-bg"></div>
       </a>
     </div>
 </section>
