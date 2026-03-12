@@ -52,11 +52,7 @@ A modern, high-performance personal portfolio showcasing expertise in **Graphic 
 3. **Open in browser**:
    Navigate to `http://localhost:8000`.
 
-## 🤝 Contact & Collaboration
-I am always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
 
-- **LinkedIn**: [Vaishnav T Prakash](https://www.linkedin.com/in/vaishnavtprakash/)
-- **Instagram**: [@vyshh.design](https://www.instagram.com/vyshh.design/)
 
 ---
 *Designed & Developed by Vaishnav T. Prakash*
