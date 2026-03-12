@@ -1,39 +1,40 @@
-# Retro OS Portfolio - Vaishnav T Prakash
+# Vaishnav T. Prakash | Creative Portfolio
 
-A unique, interactive portfolio experience designed with a **Retro Windows 95/98 OS** aesthetic. This project showcases my work, skills, and personality through a nostalgic, fully functional desktop environment in the browser.
+A modern, high-performance personal portfolio showcasing expertise in **Graphic Design**, **Video Editing**, and **Motion Graphics**. This project is built with a focus on creative storytelling, featuring interactive elements, video backgrounds, and a sleek dark-themed UI.
 
-## 🖥️ Live Demo
+## 🚀 Live Demo
 [View the Portfolio](https://yovyshh.github.io/portfolio/)
 
-## 🚀 Key Features
+## ✨ Key Features
 
-- **Window Management**: Fully draggable and resizable windows for different sections (About, Projects, Contact).
-- **Taskbar & Start Menu**: Functional taskbar to manage open applications and a classic Start Menu for navigation.
-- **CRT Effect**: Authentic CRT scanline overlay for that true vintage monitor feel.
-- **Interactive Icons**: Desktop icons that launch "applications" (windows) on double-click.
-- **System Tray**: Real-time clock and system notifications.
-- **Responsive "OS"**: Includes a mobile warning modal for the best experience on desktop screens.
+- **Immersive Hero Section**: Features custom video backgrounds and dynamic typography for an immediate creative impact.
+- **Interactive UX**: Smooth scrolling, parallax effects, and Tailwind-powered animations (float, pulse, slide-up).
+- **Comprehensive Showroom**: Dedicated sections for brand identity, motion graphics, and social media content.
+- **Optimized for All Devices**: Fully responsive design with mobile-specific optimizations and cross-browser compatibility (including Instagram in-app browser detection).
+- **Fast Performance**: Built with Tailwind CSS and modern JavaScript for rapid loading and smooth transitions.
 
 ## 🛠️ Tech Stack
 
-- **HTML5**: Semantic structure for the OS layout.
-- **CSS3**: Custom styling for the retro UI, including gradients, borders, and CRT animations.
-- **JavaScript (Vanilla)**: Core logic for window dragging, taskbar management, and desktop interaction.
-- **Win95.css (Inspiration)**: Styling patterns following the classic Microsoft design language.
+- **Frontend**: HTML5, Tailwind CSS
+- **Interactivity**: Vanilla JavaScript, Font Awesome
+- **Media**: MP4/WebM Video integration, custom iconography
+- **Deployment**: GitHub Pages
 
 ## 📂 Project Structure
 
 ```text
 .
-├── index.html          # Main OS Entry point
-├── css/                # Style definitions (Retro UI & Animations)
-├── js/                 # OS Logic (Window manager, Taskbar, Clock)
-├── images/             # Icons and backgrounds
-├── videos/             # Project demos and background assets
-└── .idx/               # Project configuration
+├── index.html          # Main entry point (Portfolio structure & Hero)
+├── css/
+│   └── main.css        # Custom styles and specialized animations
+├── js/
+│   └── script.js       # UI Logic (Scroll animations, navigation)
+├── images/             # Brand assets, project thumbnails, and icons
+├── videos/             # High-quality project demos and background loops
+└── site[1-4].html      # Specialized project/case study sub-pages
 ```
 
-## 🛠️ How to Run Locally
+## 🛠️ Local Development
 
 1. **Clone the repository**:
    ```bash
@@ -41,11 +42,21 @@ A unique, interactive portfolio experience designed with a **Retro Windows 95/98
    cd portfolio
    ```
 
-2. **Open `index.html`**:
-   Simply open the `index.html` file in any modern web browser.
+2. **Run a local server**:
+   Since the project uses video assets and local paths, it's best viewed through a local server (like Live Server in VS Code).
+   ```bash
+   # If you have Python installed:
+   python -m http.server 8000
+   ```
 
-## 🤝 Contributing
-Feel free to fork this project and adapt the retro style for your own portfolio! Pull requests are welcome for any UI improvements or bug fixes.
+3. **Open in browser**:
+   Navigate to `http://localhost:8000`.
+
+## 🤝 Contact & Collaboration
+I am always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
+
+- **LinkedIn**: [Vaishnav T Prakash](https://www.linkedin.com/in/vaishnavtprakash/)
+- **Instagram**: [@vyshh.design](https://www.instagram.com/vyshh.design/)
 
 ---
-*Created with ❤️ by Vaishnav T Prakash*
+*Designed & Developed by Vaishnav T. Prakash*
