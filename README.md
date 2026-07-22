@@ -5,7 +5,7 @@ A modern, high-performance personal portfolio showcasing expertise in **Graphic 
 ## 🚀 Live Demo
 [View the Portfolio](https://yovyshh.github.io/portfolio/)
 
-## ✨ Key Features
+##  Key Features
 
 - **Immersive Hero Section**: Features custom video backgrounds and dynamic typography for an immediate creative impact.
 - **Interactive UX**: Smooth scrolling, parallax effects, and Tailwind-powered animations (float, pulse, slide-up).
@@ -13,7 +13,7 @@ A modern, high-performance personal portfolio showcasing expertise in **Graphic 
 - **Optimized for All Devices**: Fully responsive design with mobile-specific optimizations and cross-browser compatibility (including Instagram in-app browser detection).
 - **Fast Performance**: Built with Tailwind CSS and modern JavaScript for rapid loading and smooth transitions.
 
-## 🛠️ Tech Stack
+## 🛠 Tech Stack
 
 - **Frontend**: HTML5, Tailwind CSS
 - **Interactivity**: Vanilla JavaScript, Font Awesome
@@ -34,7 +34,7 @@ A modern, high-performance personal portfolio showcasing expertise in **Graphic 
 └── site[1-4].html      # Specialized project/case study sub-pages
 ```
 
-## 🛠️ Local Development
+## 🛠 Local Development
 
 1. **Clone the repository**:
    ```bash
